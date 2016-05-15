@@ -3,12 +3,24 @@
 /*                                                        :::      ::::::::   */
 /*   ft_parsing.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: ademenet <ademenet@student.42.fr>          +#+  +:+       +#+        */
+/*   By: alain <alain@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/04/26 13:58:05 by ademenet          #+#    #+#             */
-/*   Updated: 2016/04/26 14:30:36 by ademenet         ###   ########.fr       */
+/*   Updated: 2016/05/15 17:32:08 by alain            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
+
+#include "./libft/libft.a"
+
+/*
+** This function check if the arg is an integer.
+*/
+
+int			ft_is_correct()
+{
+	if (ft_isdigit(av) && av < INT_MAX && av > INT_MIN)
+	return (1);
+}
 
 int			*ft_parsing(int ac, char **av)
 {
