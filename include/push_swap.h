@@ -6,7 +6,7 @@
 /*   By: ademenet <ademenet@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/05/16 16:11:14 by ademenet          #+#    #+#             */
-/*   Updated: 2016/05/16 18:48:18 by ademenet         ###   ########.fr       */
+/*   Updated: 2016/05/17 09:09:46 by ademenet         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,7 +22,7 @@
 
 # define INT_MAX 2147483647
 # define INT_MIN -2147483648
-# define IS_INT(V) V > INT_MIN && V < INT_MAX
+# define IS_INT(V) V >= INT_MIN && V <= INT_MAX
 
 /*
 ** This is my structure list:

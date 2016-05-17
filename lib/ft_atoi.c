@@ -6,13 +6,13 @@
 /*   By: ademenet <ademenet@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2015/11/24 17:27:36 by ademenet          #+#    #+#             */
-/*   Updated: 2016/05/16 18:20:43 by ademenet         ###   ########.fr       */
+/*   Updated: 2016/05/17 09:08:58 by ademenet         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../include/push_swap.h"
 
-long	ft_atoi(const char *str)
+long		ft_atoi(const char *str)
 {
 	long	sign;
 	long	nbr;

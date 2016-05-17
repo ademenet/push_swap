@@ -6,7 +6,7 @@
 /*   By: ademenet <ademenet@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/04/26 13:58:05 by ademenet          #+#    #+#             */
-/*   Updated: 2016/05/16 18:58:32 by ademenet         ###   ########.fr       */
+/*   Updated: 2016/05/17 09:09:56 by ademenet         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,10 +35,10 @@ int				ft_isunique(t_list *list, int v)
 
 int				ft_isint(t_list *list, char *av)
 {
-	int			v;
+	long		v;
 
-	v = (int)ft_atoi(av);
-	return (IS_INT(v) ? ft_isunique(list, v) : ft_error());
+	v = ft_atoi(av);
+	return (IS_INT(v) ? ft_isunique(list, (int)v) : ft_error());
 }
 
 int				ft_check(t_list *list, char *av)

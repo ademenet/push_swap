@@ -11,7 +11,7 @@ void		test_ft_parsing(void)
 	char	*av[4];
 	int		ac = 4;
 	av[0] = "a.out";
-	av[1] =	"52";
+	av[1] =	"2147483649";
 	av[2] = "-89";
 	av[3] = "2";
 
