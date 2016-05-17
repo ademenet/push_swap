@@ -6,7 +6,7 @@
 /*   By: ademenet <ademenet@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/05/17 13:47:22 by ademenet          #+#    #+#             */
-/*   Updated: 2016/05/17 14:32:25 by ademenet         ###   ########.fr       */
+/*   Updated: 2016/05/17 14:57:30 by ademenet         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -50,7 +50,7 @@ void		ft_swap_a(t_list *la)
 {
 	int		tmp;
 
-	if (la->head->next == NULL || !la)
+	if (la->head == NULL || la->head->next == NULL)
 		return ;
 	tmp = la->head->next->v;
 	la->head->next->v = la->head->v;
@@ -61,7 +61,7 @@ void		ft_swap_b(t_list *lb)
 {
 	int		tmp;
 
-	if (lb->head->prev == NULL || !lb)
+	if (lb->head == NULL || lb->head->prev == NULL)
 		return ;
 	tmp = lb->head->prev->v;
 	lb->head->prev->v = lb->head->v;
