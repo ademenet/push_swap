@@ -96,8 +96,9 @@ void		print_lb(t_list *l)
 
 void		test_ft_operations(void)
 {
+	setbuf(stdout, NULL);
 	t_list	*la = NULL;
-	t_list	*lb = NULL;
+	t_list	lb;
 	char	*av[6];
 	int		ac = 6;
 
@@ -110,13 +111,26 @@ void		test_ft_operations(void)
 
 	la = ft_parsing(ac, av);
 
-	printf("Test avant swap:\t");
+	printf("%-30s", "Liste initiale:");
 	print_la(la);
+	printf("\n");
 
-	printf("Test apres swap:\t");
-	ret = ft_swap();
+	printf("%-30s", "Test apres swap a:");
+	ft_swap_a(la);
 	print_la(la);
-	print_lb(lb);
+	printf("\n");
+
+// Initializing my second list
+	lb.head = NULL;
+	lb.tail = NULL;
+	lb.len = 0;
+
+	printf("%-30s", "Push a:");
+	ft_push_b(la, &lb);
+	print_la(la);
+	// print_lb(&lb);
+	printf("\n");
+
 }
 
 int			main()
