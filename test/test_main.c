@@ -177,6 +177,17 @@ void		test_ft_operations(void)
 	print_la(la);
 	print_lb(&lb);
 
+	printf("%-30s", "3*push a:");
+	ft_push_a(la, &lb);
+	ft_push_a(la, &lb);
+	ft_push_a(la, &lb);
+	print_la(la);
+	print_lb(&lb);
+
+	printf("%-30s", "Rotate a:");
+	ft_rotate_a(la);
+	print_la(la);
+	print_lb(&lb);
 
 }
 
