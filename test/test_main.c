@@ -7,11 +7,13 @@ void		print_la(t_list *l)
 	t_node	*tmp;
 
 	tmp = l->head;
+	fprintf(stdout, "la |");
 	while (tmp)
 	{
 		fprintf(stdout, "%5d", tmp->v);
 		tmp = tmp->next;
 	}
+	fprintf(stdout, "|\n");
 }
 
 void		print_lb(t_list *l)
@@ -19,11 +21,13 @@ void		print_lb(t_list *l)
 	t_node	*tmp;
 
 	tmp = l->head;
+	fprintf(stdout, "%30clb |", ' ');
 	while (tmp)
 	{
 		fprintf(stdout, "%5d", tmp->v);
 		tmp = tmp->prev;
 	}
+	fprintf(stdout, "|\n");
 }
 
 
@@ -108,28 +112,71 @@ void		test_ft_operations(void)
 	av[3] = "78";
 	av[4] = "-56";
 	av[5] = "4";
-
+// Initializing my first list
 	la = ft_parsing(ac, av);
-
-	printf("%-30s", "Liste initiale:");
-	print_la(la);
-	printf("\n");
-
-	printf("%-30s", "Test apres swap a:");
-	ft_swap_a(la);
-	print_la(la);
-	printf("\n");
-
 // Initializing my second list
 	lb.head = NULL;
 	lb.tail = NULL;
 	lb.len = 0;
 
-	printf("%-30s", "Push a:");
+
+	printf("%-30s", "Liste initiale:");
+	print_la(la);
+	print_lb(&lb);
+
+	printf("%-30s", "Test apres swap a:");
+	ft_swap_a(la);
+	print_la(la);
+	print_lb(&lb);
+
+
+	printf("%-30s", "Push b:");
 	ft_push_b(la, &lb);
 	print_la(la);
-	// print_lb(&lb);
-	printf("\n");
+	print_lb(&lb);
+
+	printf("%-30s", "Push b:");
+	ft_push_b(la, &lb);
+	print_la(la);
+	print_lb(&lb);
+
+	printf("%-30s", "Push a:");
+	ft_push_a(la, &lb);
+	print_la(la);
+	print_lb(&lb);
+
+	printf("%-30s", "Swap a:");
+	ft_swap_a(la);
+	print_la(la);
+	print_lb(&lb);
+
+	printf("%-30s", "3*push b:");
+	ft_push_b(la, &lb);
+	ft_push_b(la, &lb);
+	ft_push_b(la, &lb);
+	print_la(la);
+	print_lb(&lb);
+
+	printf("%-30s", "Push b:");
+	ft_push_b(la, &lb);
+	print_la(la);
+	print_lb(&lb);
+
+	printf("%-30s", "Swap a:");
+	ft_swap_a(la);
+	print_la(la);
+	print_lb(&lb);
+
+	printf("%-30s", "Push a:");
+	ft_push_a(la, &lb);
+	print_la(la);
+	print_lb(&lb);
+
+	printf("%-30s", "Swap a:");
+	ft_swap_a(la);
+	print_la(la);
+	print_lb(&lb);
+
 
 }
 
