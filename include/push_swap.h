@@ -6,7 +6,7 @@
 /*   By: ademenet <ademenet@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/05/16 16:11:14 by ademenet          #+#    #+#             */
-/*   Updated: 2016/05/17 09:09:46 by ademenet         ###   ########.fr       */
+/*   Updated: 2016/05/17 14:26:27 by ademenet         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,6 +23,14 @@
 # define INT_MAX 2147483647
 # define INT_MIN -2147483648
 # define IS_INT(V) V >= INT_MIN && V <= INT_MAX
+
+typedef enum		e_move
+{
+	SWAP_A, SWAP_B, SWAP_S,
+	PUSH_A, PUSH_B,
+	ROT_A, ROT_B, ROT_R,
+	REV_ROT_A, REV_ROT_B, REV_ROT_R
+}					t_move;
 
 /*
 ** This is my structure list:
@@ -65,5 +73,14 @@ t_list			*ft_parsing(int ac, char **av);
 int				ft_check(t_list *list, char *av);
 int				ft_isint(t_list *list, char *av);
 int				ft_isunique(t_list *list, int v);
+
+/*
+** ft_operations.c
+*/
+
+void			ft_swap_a(t_list *la);
+void			ft_swap_b(t_list *lb);
+void			ft_push_a(t_list *la, t_list *lb);
+void			ft_push_b(t_list *la, t_list *lb);
 
 #endif
