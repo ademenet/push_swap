@@ -6,7 +6,7 @@
 /*   By: ademenet <ademenet@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/05/17 13:47:22 by ademenet          #+#    #+#             */
-/*   Updated: 2016/05/18 13:24:49 by ademenet         ###   ########.fr       */
+/*   Updated: 2016/05/18 16:13:08 by ademenet         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,6 +31,7 @@ void		ft_push_a(t_list *la, t_list *lb)
 		la->len++;
 		lb->len--;
 	}
+	ft_printf("pa\n");
 }
 
 void		ft_push_b(t_list *la, t_list *lb)
@@ -52,6 +53,7 @@ void		ft_push_b(t_list *la, t_list *lb)
 		lb->len++;
 		la->len--;
 	}
+	ft_printf("pb\n");
 }
 
 void		ft_swap_a(t_list *la)
@@ -63,6 +65,7 @@ void		ft_swap_a(t_list *la)
 	tmp = la->head->next->v;
 	la->head->next->v = la->head->v;
 	la->head->v = tmp;
+	ft_printf("sa\n");
 }
 
 void		ft_swap_b(t_list *lb)
@@ -74,4 +77,5 @@ void		ft_swap_b(t_list *lb)
 	tmp = lb->head->prev->v;
 	lb->head->prev->v = lb->head->v;
 	lb->head->v = tmp;
+	ft_printf("sb\n");
 }

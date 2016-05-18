@@ -6,7 +6,7 @@
 /*   By: ademenet <ademenet@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/05/16 16:11:14 by ademenet          #+#    #+#             */
-/*   Updated: 2016/05/18 13:54:26 by ademenet         ###   ########.fr       */
+/*   Updated: 2016/05/18 16:35:09 by ademenet         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,10 +19,21 @@
 
 # include <stdio.h> // for debugging
 
-
 # define INT_MAX 2147483647
 # define INT_MIN -2147483648
 # define IS_INT(V) V >= INT_MIN && V <= INT_MAX
+
+/*
+** I dunno if I'm going to use those:
+*/
+
+int					g_min;
+int					g_max;
+int					g_pivot;
+
+/*
+** Same here, could be useful in order to call functions and/or displaying:
+*/
 
 typedef enum		e_move
 {
@@ -64,7 +75,9 @@ int				ft_isdigit(int c);
 int				ft_strisdigit(char *s);
 long			ft_atoi(const char *str);
 int				ft_isascending(int a, int b);
-int				ft_isdescending(int a, int b)
+int				ft_isdescending(int a, int b);
+int				ft_issortasc(t_list *l);
+int				ft_issortdes(t_list *l);
 int				ft_error(void);
 
 /*
@@ -88,5 +101,22 @@ void			ft_rotate_a(t_list *la);
 void			ft_rotate_b(t_list *lb);
 void			ft_revrotate_a(t_list *la);
 void			ft_revrotate_b(t_list *lb);
+
+/*
+** ft_solving.c
+*/
+
+void			ft_quicksort(t_list *la, t_list *lb);
+void			ft_sort_a(t_list *la);
+void			ft_sort_b(t_list *lb);
+
+int				ft_printf(const char *format, ...);
+
+/*
+** Debug - to be cleaned
+*/
+
+void			print_la(t_list *l);
+void			print_lb(t_list *l);
 
 #endif

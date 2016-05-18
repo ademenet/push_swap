@@ -6,7 +6,7 @@
 /*   By: ademenet <ademenet@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/05/17 18:21:21 by ademenet          #+#    #+#             */
-/*   Updated: 2016/05/18 10:40:19 by ademenet         ###   ########.fr       */
+/*   Updated: 2016/05/18 16:16:15 by ademenet         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,6 +26,7 @@ void			ft_rotate_a(t_list *la)
 	la->tail->next = tmp;
 	la->tail = tmp;
 	la->tail->next = NULL;
+	ft_printf("ra\n");
 }
 
 void			ft_rotate_b(t_list *lb)
@@ -43,6 +44,7 @@ void			ft_rotate_b(t_list *lb)
 	lb->tail->prev = tmp;
 	lb->tail = tmp;
 	lb->tail->prev = NULL;
+	ft_printf("rb\n");
 }
 
 void			ft_revrotate_a(t_list *la)
@@ -60,6 +62,7 @@ void			ft_revrotate_a(t_list *la)
 	la->head->prev = tmp;
 	tmp->next = la->head;
 	la->head = tmp;
+	ft_printf("rra\n");
 }
 
 void			ft_revrotate_b(t_list *lb)
@@ -77,4 +80,5 @@ void			ft_revrotate_b(t_list *lb)
 	lb->head->next = tmp;
 	tmp->prev = lb->head;
 	lb->head = tmp;
+	ft_printf("rrb\n");
 }

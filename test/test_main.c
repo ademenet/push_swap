@@ -21,7 +21,7 @@ void		print_lb(t_list *l)
 	t_node	*tmp;
 
 	tmp = l->head;
-	fprintf(stdout, "%30clb |", ' ');
+	fprintf(stdout, "lb |");
 	while (tmp)
 	{
 		fprintf(stdout, "%5d", tmp->v);
@@ -287,7 +287,58 @@ void		print_lb(t_list *l)
 // 	printf("lb->len == %d\n", lb.len);
 // }
 
-void		test_ft_example(void)
+// void		test_ft_example(void)
+// {
+// 	setbuf(stdout, NULL);
+// 	t_list	*la = NULL;
+// 	t_list	lb;
+// 	char	*av[7];
+// 	int		ac = 7;
+//
+// 	av[0] = "a.out";
+// 	av[1] = "2";
+// 	av[2] = "1";
+// 	av[3] = "3";
+// 	av[4] = "6";
+// 	av[5] = "5";
+// 	av[6] = "8";
+// // Initializing my first list
+// 	la = ft_parsing(ac, av);
+// // Initializing my second list
+// 	lb.head = NULL;
+// 	lb.tail = NULL;
+// 	lb.len = 0;
+//
+// 	printf("%-30s", "Liste initiale:");
+// 	print_la(la);
+// 	print_lb(&lb);
+//
+// 	printf("%-30s", "Swap a:");
+// 	ft_swap_a(la);
+// 	print_la(la);
+// 	print_lb(&lb);
+//
+// 	printf("%-30s", "3*push b:");
+// 	ft_push_b(la, &lb);
+// 	ft_push_b(la, &lb);
+// 	ft_push_b(la, &lb);
+// 	print_la(la);
+// 	print_lb(&lb);
+//
+// 	printf("%-30s", "Swap a:");
+// 	ft_swap_a(la);
+// 	print_la(la);
+// 	print_lb(&lb);
+//
+// 	printf("%-30s", "3*push a:");
+// 	ft_push_a(la, &lb);
+// 	ft_push_a(la, &lb);
+// 	ft_push_a(la, &lb);
+// 	print_la(la);
+// 	print_lb(&lb);
+// }
+
+void		test_ft_solving(void)
 {
 	setbuf(stdout, NULL);
 	t_list	*la = NULL;
@@ -296,12 +347,12 @@ void		test_ft_example(void)
 	int		ac = 7;
 
 	av[0] = "a.out";
-	av[1] = "2";
-	av[2] = "1";
-	av[3] = "3";
-	av[4] = "6";
-	av[5] = "5";
-	av[6] = "8";
+	av[1] = "89";
+	av[2] = "4";
+	av[3] = "1";
+	av[4] = "-8";
+	av[5] = "125";
+	av[6] = "78";
 // Initializing my first list
 	la = ft_parsing(ac, av);
 // Initializing my second list
@@ -309,46 +360,17 @@ void		test_ft_example(void)
 	lb.tail = NULL;
 	lb.len = 0;
 
-	printf("%-30s", "Liste initiale:");
-	print_la(la);
-	print_lb(&lb);
-
-	printf("%-30s", "Swap a:");
-	ft_swap_a(la);
-	print_la(la);
-	print_lb(&lb);
-
-	printf("%-30s", "3*push b:");
-	ft_push_b(la, &lb);
-	ft_push_b(la, &lb);
-	ft_push_b(la, &lb);
-	print_la(la);
-	print_lb(&lb);
-
-	printf("%-30s", "Swap a:");
-	ft_swap_a(la);
-	print_la(la);
-	print_lb(&lb);
-
-	printf("%-30s", "3*push a:");
-	ft_push_a(la, &lb);
-	ft_push_a(la, &lb);
-	ft_push_a(la, &lb);
+	ft_quicksort(la, &lb);
 	print_la(la);
 	print_lb(&lb);
 }
-
-// void		test_ft_solving(void)
-// {
-//
-// }
 
 int			main()
 {
 	// test_ft_parsing();
 	// test_ft_operations();
 	// test_ft_list_len();
-	test_ft_example();
-	// test_ft_solving();
+	// test_ft_example();
+	test_ft_solving();
 	return (0);
 }
