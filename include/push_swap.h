@@ -6,7 +6,7 @@
 /*   By: ademenet <ademenet@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/05/16 16:11:14 by ademenet          #+#    #+#             */
-/*   Updated: 2016/05/18 13:38:17 by ademenet         ###   ########.fr       */
+/*   Updated: 2016/05/18 13:54:26 by ademenet         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -64,6 +64,7 @@ int				ft_isdigit(int c);
 int				ft_strisdigit(char *s);
 long			ft_atoi(const char *str);
 int				ft_isascending(int a, int b);
+int				ft_isdescending(int a, int b)
 int				ft_error(void);
 
 /*
