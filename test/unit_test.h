@@ -7,6 +7,8 @@
 #include <strings.h>
 #include <stdlib.h>
 
+#define DEBUG fprintf(stderr, "In %s, line %d of %s\n", __func__, __LINE__, __FILE__);
+
 #define MY_TEST(name, ft) printf("\033[0m%s -- \033[0m", name); ft(); \
 	printf("\n");
 
