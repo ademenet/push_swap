@@ -6,7 +6,7 @@
 /*   By: ademenet <ademenet@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/05/17 18:21:21 by ademenet          #+#    #+#             */
-/*   Updated: 2016/05/17 18:56:38 by ademenet         ###   ########.fr       */
+/*   Updated: 2016/05/18 10:13:23 by ademenet         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,13 +16,30 @@ void			ft_rotate_a(t_list *la)
 {
 	t_node		*tmp;
 
+	if (la->head == NULL || la->head == la->tail)
+		return ;
 	tmp = la->head;
+	tmp->prev->next = tmp->next;
+	tmp->next->prev = tmp->prev;
 	la->head = tmp->next;
-	la->head->prev = tmp->prev;
-	tmp->prev->next = la->head;
-
 	tmp->prev = la->tail;
 	la->tail->next = tmp;
 	la->tail = tmp;
 	la->tail->next = NULL;
+}
+
+void			ft_rotate_b(t_list *lb)
+{
+	t_node		*tmp;
+
+	if (lb->head == NULL || lb->head == lb->tail)
+		return ;
+	tmp = lb->head;
+	tmp->next->prev = tmp->prev;
+	tmp->prev->next = tmp->next;
+	lb->head = tmp->prev;
+	tmp->next = lb->tail;
+	lb->tail->prev = tmp;
+	lb->tail = tmp;
+	lb->tail->prev = NULL;
 }
