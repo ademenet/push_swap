@@ -6,7 +6,7 @@
 /*   By: ademenet <ademenet@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/05/17 13:47:22 by ademenet          #+#    #+#             */
-/*   Updated: 2016/05/17 14:57:30 by ademenet         ###   ########.fr       */
+/*   Updated: 2016/05/18 09:56:40 by ademenet         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,6 +19,8 @@ void		ft_push_a(t_list *la, t_list *lb)
 	else
 	{
 		la->head = lb->head;
+		if (la->tail == NULL)
+			la->tail = lb->head;
 		if (lb->head->prev != NULL)
 			lb->head = lb->head->prev;
 		else
@@ -36,6 +38,8 @@ void		ft_push_b(t_list *la, t_list *lb)
 	else
 	{
 		lb->head = la->head;
+		if (lb->tail == NULL)
+			lb->tail = la->head;
 		if (la->head->next != NULL)
 			la->head = la->head->next;
 		else
