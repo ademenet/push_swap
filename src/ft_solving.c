@@ -6,7 +6,7 @@
 /*   By: ademenet <ademenet@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/05/18 10:45:20 by ademenet          #+#    #+#             */
-/*   Updated: 2016/05/18 13:16:20 by ademenet         ###   ########.fr       */
+/*   Updated: 2016/05/18 13:37:53 by ademenet         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,5 +14,5 @@
 
 void		ft_solving()
 {
-	
+	while (ft_isascending())
 }
