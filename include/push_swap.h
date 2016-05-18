@@ -6,7 +6,7 @@
 /*   By: ademenet <ademenet@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/05/16 16:11:14 by ademenet          #+#    #+#             */
-/*   Updated: 2016/05/18 10:11:23 by ademenet         ###   ########.fr       */
+/*   Updated: 2016/05/18 10:23:00 by ademenet         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -84,6 +84,7 @@ void			ft_push_a(t_list *la, t_list *lb);
 void			ft_push_b(t_list *la, t_list *lb);
 void			ft_rotate_a(t_list *la);
 void			ft_rotate_b(t_list *lb);
-
+void			ft_revrotate_a(t_list *la);
+void			ft_revrotate_b(t_list *lb);
 
 #endif
