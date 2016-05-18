@@ -6,8 +6,13 @@
 /*   By: ademenet <ademenet@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/05/18 10:45:20 by ademenet          #+#    #+#             */
-/*   Updated: 2016/05/18 10:45:32 by ademenet         ###   ########.fr       */
+/*   Updated: 2016/05/18 13:16:20 by ademenet         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../include/push_swap.h"
+
+void		ft_solving()
+{
+	
+}

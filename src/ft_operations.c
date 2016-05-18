@@ -6,7 +6,7 @@
 /*   By: ademenet <ademenet@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/05/17 13:47:22 by ademenet          #+#    #+#             */
-/*   Updated: 2016/05/18 10:40:47 by ademenet         ###   ########.fr       */
+/*   Updated: 2016/05/18 13:24:49 by ademenet         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,6 +28,8 @@ void		ft_push_a(t_list *la, t_list *lb)
 			lb->head = NULL;
 			lb->tail = NULL;
 		}
+		la->len++;
+		lb->len--;
 	}
 }
 
@@ -47,6 +49,8 @@ void		ft_push_b(t_list *la, t_list *lb)
 			la->head = NULL;
 			la->tail = NULL;
 		}
+		lb->len++;
+		la->len--;
 	}
 }
 

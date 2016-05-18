@@ -230,15 +230,74 @@ void		print_lb(t_list *l)
 // 	print_lb(&lb);
 // }
 
-void		test_ft_solving(void)
+void		test_ft_list_len(void)
 {
-	
+	setbuf(stdout, NULL);
+	t_list	*la = NULL;
+	t_list	lb;
+	char	*av[6];
+	int		ac = 6;
+
+	av[0] = "a.out";
+	av[1] = "56";
+	av[2] = "15";
+	av[3] = "78";
+	av[4] = "-56";
+	av[5] = "4";
+// Initializing my first list
+	la = ft_parsing(ac, av);
+// Initializing my second list
+	lb.head = NULL;
+	lb.tail = NULL;
+	lb.len = 0;
+
+	printf("%-30s", "Liste initiale:");
+	print_la(la);
+	printf("la->len == %d\n", la->len);
+	print_lb(&lb);
+	printf("lb->len == %d\n", lb.len);
+
+	printf("%-30s", "Apres deux push b");
+	ft_push_b(la, &lb);
+	ft_push_b(la, &lb);
+	print_la(la);
+	printf("la->len == %d\n", la->len);
+	print_lb(&lb);
+	printf("lb->len == %d\n", lb.len);
+
+	printf("%-30s", "Apres un push a");
+	ft_push_a(la, &lb);
+	print_la(la);
+	printf("la->len == %d\n", la->len);
+	print_lb(&lb);
+	printf("lb->len == %d\n", lb.len);
+
+	printf("%-30s", "Apres un push a");
+	ft_push_a(la, &lb);
+	print_la(la);
+	printf("la->len == %d\n", la->len);
+	print_lb(&lb);
+	printf("lb->len == %d\n", lb.len);
+
+	printf("%-30s", "Apres un push a inutile");
+	ft_push_a(la, &lb);
+	print_la(la);
+	printf("la->len == %d\n", la->len);
+	print_lb(&lb);
+	printf("lb->len == %d\n", lb.len);
+
 }
+
+// void		test_ft_solving(void)
+// {
+//
+// }
 
 int			main()
 {
 	// test_ft_parsing();
 	// test_ft_operations();
-	test_ft_solving();
+	test_ft_list_len();
+	// test_ft_solving();
 	return (0);
 }
