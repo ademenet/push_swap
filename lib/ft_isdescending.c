@@ -1,18 +1,18 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_isascending.c                                   :+:      :+:    :+:   */
+/*   ft_isdescending.c                                  :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: ademenet <ademenet@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/05/18 13:36:19 by ademenet          #+#    #+#             */
-/*   Updated: 2016/05/18 13:55:10 by ademenet         ###   ########.fr       */
+/*   Updated: 2016/05/18 13:54:32 by ademenet         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../include/push_swap.h"
 
-int			ft_isascending(int a, int b)
+int			ft_isdescending(int a, int b)
 {
-	return (a < b);
+	return (a > b);
 }
