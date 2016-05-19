@@ -116,69 +116,99 @@ void		test_ft_operations(void)
 	la = ft_parsing(ac, av);
 	lb = ft_lstnew();
 
-	printf("%-30s", "Liste initiale:");
-	print_la(la); getchar();
-	print_lb(lb); getchar();
+	printf("%-30s\n", "Liste initiale:");
+	print_la(la);
+	print_lb(lb);
 
-	printf("%-30s", "Test apres swap a:");
-	ft_swap(la); getchar();
-	print_la(la); getchar();
-	print_lb(lb); getchar();
+	printf("%-30s\n", "Test apres swap a:");
+	ft_swap(la);
+	print_la(la);
+	print_lb(lb);
 
 
-	printf("%-30s", "Push b:");
-	ft_push_b(la, lb); getchar();
-	print_la(la); getchar();
-	print_lb(lb); getchar();
+	printf("%-30s\n", "Push b:");
+	ft_push_b(la, lb);
+	print_la(la);
+	print_lb(lb);
 
-	printf("%-30s", "Push b:");
-	ft_push_b(la, lb); getchar();
-	print_la(la); getchar();
-	print_lb(lb); getchar();
+	printf("%-30s\n", "Push b:");
+	ft_push_b(la, lb);
+	print_la(la);
+	print_lb(lb);
 
-	// printf("%-30s", "Push a:");
-	// ft_push_a(la, lb);
-	// print_la(la);
-	// print_lb(lb);
-	//
-	// printf("%-30s", "Swap a:");
-	// ft_swap_a(la);
-	// print_la(la);
-	// print_lb(lb);
-	//
-	// printf("%-30s", "3*push b:");
-	// ft_push_b(la, lb);
-	// ft_push_b(la, lb);
-	// ft_push_b(la, lb);
-	// print_la(la);
-	// print_lb(lb);
-	//
-	// printf("%-30s", "Push b:");
-	// ft_push_b(la, lb);
-	// print_la(la);
-	// print_lb(lb);
-	//
-	// printf("%-30s", "Swap a:");
-	// ft_swap_a(la);
-	// print_la(la);
-	// print_lb(lb);
-	//
-	// printf("%-30s", "Push a:");
-	// ft_push_a(la, lb);
-	// print_la(la);
-	// print_lb(lb);
-	//
-	// printf("%-30s", "Swap a:");
-	// ft_swap_a(la);
-	// print_la(la);
-	// print_lb(lb);
-	//
-	// printf("%-30s", "3*push a:");
-	// ft_push_a(la, lb);
-	// ft_push_a(la, lb);
-	// ft_push_a(la, lb);
-	// print_la(la);
-	// print_lb(lb);
+	printf("%-30s\n", "3*push b:");
+	ft_push_b(la, lb);
+	ft_push_b(la, lb);
+	ft_push_b(la, lb);
+	print_la(la);
+	print_lb(lb);
+
+	printf("%-30s\n", "2*push a:");
+	ft_push_a(la, lb);
+	print_la(la);
+	print_lb(lb);
+	ft_push_a(la, lb);
+	print_la(la);
+	print_lb(lb);
+
+	printf("%-30s\n", "Swap a:");
+	ft_swap(la);
+	print_la(la);
+	print_lb(lb);
+
+	printf("%-30s\n", "3*push b:");
+	ft_push_b(la, lb);
+	print_la(la);
+	print_lb(lb);
+	ft_push_b(la, lb);
+	print_la(la);
+	print_lb(lb);
+	ft_push_b(la, lb);
+	print_la(la);
+	print_lb(lb);
+
+	printf("%-30s\n", "Push b:");
+	ft_push_b(la, lb);
+	print_la(la);
+	print_lb(lb);
+
+	printf("%-30s\n", "Swap a:");
+	ft_swap(la);
+	print_la(la);
+	print_lb(lb);
+
+	printf("%-30s\n", "Push a:");
+	ft_push_a(la, lb);
+	print_la(la);
+	print_lb(lb);
+
+	printf("%-30s\n", "Swap a:");
+	ft_swap(la);
+	print_la(la);
+	print_lb(lb);
+
+	printf("%-30s\n", "Swap b:");
+	ft_swap(lb);
+	print_la(la);
+	print_lb(lb);
+
+	printf("%-30s\n", "Swap b:");
+	ft_swap(lb);
+	print_la(la);
+	print_lb(lb);
+
+	printf("%-30s\n", "3*push a:");
+	ft_push_a(la, lb);
+	print_la(la);
+	print_lb(lb);
+	ft_push_a(la, lb);
+	print_la(la);
+	print_lb(lb);
+	ft_push_a(la, lb);
+	print_la(la);
+	print_lb(lb);
+	print_la(la);
+	print_lb(lb);
 	//
 	// printf("%-30s", "Rotate a:");
 	// ft_rotate_a(la);
@@ -310,7 +340,7 @@ void		test_ft_operations(void)
 // 	print_lb(lb);
 //
 // 	printf("%-30s", "Swap a:");
-// 	ft_swap_a(la);
+// 	ft_swap(la);
 // 	print_la(la);
 // 	print_lb(lb);
 //
@@ -322,7 +352,7 @@ void		test_ft_operations(void)
 // 	print_lb(lb);
 //
 // 	printf("%-30s", "Swap a:");
-// 	ft_swap_a(la);
+// 	ft_swap(la);
 // 	print_la(la);
 // 	print_lb(lb);
 //
