@@ -6,7 +6,7 @@
 /*   By: ademenet <ademenet@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/05/18 10:45:20 by ademenet          #+#    #+#             */
-/*   Updated: 2016/05/19 17:00:41 by ademenet         ###   ########.fr       */
+/*   Updated: 2016/05/19 18:24:17 by ademenet         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,7 +26,6 @@ int			ft_findmax(t_list *l)
 			max = tmp->v;
 		tmp = tmp->next;
 	}
-	printf("%d\n", max);
 	return (max);
 }
 
