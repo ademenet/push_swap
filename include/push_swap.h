@@ -6,7 +6,7 @@
 /*   By: ademenet <ademenet@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/05/16 16:11:14 by ademenet          #+#    #+#             */
-/*   Updated: 2016/05/19 14:19:55 by ademenet         ###   ########.fr       */
+/*   Updated: 2016/05/19 15:01:40 by ademenet         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -37,10 +37,10 @@ int					g_pivot;
 
 typedef enum		e_move
 {
-	SWAP_A, SWAP_B, SWAP_S,
-	PUSH_A, PUSH_B,
-	ROT_A, ROT_B, ROT_R,
-	REV_ROT_A, REV_ROT_B, REV_ROT_R
+	SA, SB, SS,
+	PA, PB,
+	RA, RB, RR,
+	RRA, RRB, RRR
 }					t_move;
 
 /*
