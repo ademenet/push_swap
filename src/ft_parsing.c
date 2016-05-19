@@ -6,7 +6,7 @@
 /*   By: ademenet <ademenet@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/04/26 13:58:05 by ademenet          #+#    #+#             */
-/*   Updated: 2016/05/18 15:07:24 by ademenet         ###   ########.fr       */
+/*   Updated: 2016/05/19 11:24:02 by ademenet         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -50,17 +50,17 @@ int				ft_check(t_list *list, char *av)
 
 t_list			*ft_parsing(int ac, char **av)
 {
-	t_list		*list;
+	t_list		*la;
 	int			v;
 	int			i;
 
-	list = ft_lstnew();
+	la = ft_lstnew();
 	i = 1;
 	while (i < ac)
 	{
-		v = ft_check(list, av[i]);
-		list = ft_lstappend(list, v);
+		v = ft_check(la, av[i]);
+		la = ft_lstappend(la, v);
 		i++;
 	}
-	return (list);
+	return (la);
 }

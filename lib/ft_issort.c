@@ -6,7 +6,7 @@
 /*   By: ademenet <ademenet@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/05/18 16:30:29 by ademenet          #+#    #+#             */
-/*   Updated: 2016/05/18 17:56:05 by ademenet         ###   ########.fr       */
+/*   Updated: 2016/05/19 11:56:47 by ademenet         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,10 +32,10 @@ int			ft_issortdes(t_list *l)
 	t_node	*tmp;
 
 	tmp = l->head;
-	while (tmp->prev != NULL)
+	while (tmp->next != NULL)
 	{
-		if (tmp->v > tmp->prev->v)
-			tmp = tmp->prev;
+		if (tmp->v > tmp->next->v)
+			tmp = tmp->next;
 		else
 			return (1);
 	}

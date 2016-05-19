@@ -6,7 +6,7 @@
 /*   By: ademenet <ademenet@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/05/16 16:11:14 by ademenet          #+#    #+#             */
-/*   Updated: 2016/05/18 16:35:09 by ademenet         ###   ########.fr       */
+/*   Updated: 2016/05/19 11:51:06 by ademenet         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -51,7 +51,6 @@ typedef struct		s_node
 {
 	int				v;
 	struct s_node	*next;
-	struct s_node	*prev;
 }					t_node;
 
 /*
@@ -93,8 +92,8 @@ int				ft_isunique(t_list *list, int v);
 ** ft_operations.c
 */
 
-void			ft_swap_a(t_list *la);
-void			ft_swap_b(t_list *lb);
+void			ft_swap(t_list *l);
+// void			ft_swap_b(t_list *lb);
 void			ft_push_a(t_list *la, t_list *lb);
 void			ft_push_b(t_list *la, t_list *lb);
 void			ft_rotate_a(t_list *la);
