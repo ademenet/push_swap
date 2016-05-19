@@ -6,11 +6,44 @@
 /*   By: ademenet <ademenet@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/05/17 13:47:22 by ademenet          #+#    #+#             */
-/*   Updated: 2016/05/19 13:59:17 by ademenet         ###   ########.fr       */
+/*   Updated: 2016/05/19 14:19:57 by ademenet         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../include/push_swap.h"
+
+void			ft_revrotate(t_list *l)
+{
+	t_node		*tmp;
+	t_node		*tta;
+
+	if (l->head == NULL || l->head == l->tail)
+		return ;
+	tmp = l->tail;
+	tta = l->head;
+	while (tta->next != tmp)
+		tta = tta->next;
+	l->tail = tta;
+	l->tail->next = NULL;
+	tmp->next = l->head;
+	l->head = tmp;
+	// ft_printf("rra\n");
+}
+
+
+void			ft_rotate(t_list *l)
+{
+	t_node		*tmp;
+
+	if (l->head == NULL || l->head == l->tail)
+		return ;
+	tmp = l->head;
+	l->head = l->head->next;
+	l->tail->next = tmp;
+	l->tail = tmp;
+	l->tail->next = NULL;
+	// ft_printf("ra\n");
+}
 
 void		ft_push_a(t_list *la, t_list *lb)
 {

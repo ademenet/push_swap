@@ -6,7 +6,7 @@
 /*   By: ademenet <ademenet@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/05/16 16:11:14 by ademenet          #+#    #+#             */
-/*   Updated: 2016/05/19 11:51:06 by ademenet         ###   ########.fr       */
+/*   Updated: 2016/05/19 14:19:55 by ademenet         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -93,13 +93,10 @@ int				ft_isunique(t_list *list, int v);
 */
 
 void			ft_swap(t_list *l);
-// void			ft_swap_b(t_list *lb);
 void			ft_push_a(t_list *la, t_list *lb);
 void			ft_push_b(t_list *la, t_list *lb);
-void			ft_rotate_a(t_list *la);
-void			ft_rotate_b(t_list *lb);
-void			ft_revrotate_a(t_list *la);
-void			ft_revrotate_b(t_list *lb);
+void			ft_rotate(t_list *l);
+void			ft_revrotate(t_list *l);
 
 /*
 ** ft_solving.c

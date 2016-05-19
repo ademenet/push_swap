@@ -209,51 +209,62 @@ void		test_ft_operations(void)
 	print_lb(lb);
 	print_la(la);
 	print_lb(lb);
-	//
-	// printf("%-30s", "Rotate a:");
-	// ft_rotate_a(la);
-	// print_la(la);
-	// print_lb(lb);
-	//
-	// printf("%-30s", "Rotate a:");
-	// ft_rotate_a(la);
-	// print_la(la);
-	// print_lb(lb);
-	//
-	// printf("%-30s", "Rotate b:");
-	// ft_rotate_b(lb);
-	// print_la(la);
-	// print_lb(lb);
-	//
-	// printf("%-30s", "Rotate a:");
-	// ft_rotate_a(la);
-	// print_la(la);
-	// print_lb(lb);
-	//
-	// printf("%-30s", "RevRotate a:");
-	// ft_revrotate_a(la);
-	// print_la(la);
-	// print_lb(lb);
-	//
-	// printf("%-30s", "6*Push b:");
-	// ft_push_b(la, lb);
-	// ft_push_b(la, lb);
-	// ft_push_b(la, lb);
-	// ft_push_b(la, lb);
-	// ft_push_b(la, lb);
-	// ft_push_b(la, lb);
-	// print_la(la);
-	// print_lb(lb);
-	//
-	// printf("%-30s", "RevRotate b:");
-	// ft_revrotate_b(lb);
-	// print_la(la);
-	// print_lb(lb);
-	//
-	// printf("%-30s", "Rotate b:");
-	// ft_rotate_b(lb);
-	// print_la(la);
-	// print_lb(lb);
+
+	printf("%-30s", "Rotate a:");
+	ft_rotate(la);
+	print_la(la);
+	print_lb(lb);
+
+	printf("%-30s", "Rotate a:");
+	ft_rotate(la);
+	print_la(la);
+	print_lb(lb);
+
+	printf("%-30s", "Rotate b:");
+	ft_rotate(lb);
+	print_la(la);
+	print_lb(lb);
+
+	printf("%-30s\n", "3*push b:");
+	ft_push_b(la, lb);
+	print_la(la);
+	print_lb(lb);
+	ft_push_b(la, lb);
+	print_la(la);
+	print_lb(lb);
+	ft_push_b(la, lb);
+	print_la(la);
+	print_lb(lb);
+
+	printf("%-30s", "Rotate b:");
+	ft_rotate(lb);
+	print_la(la);
+	print_lb(lb);
+
+	printf("%-30s", "RevRotate a:");
+	ft_revrotate(la);
+	print_la(la);
+	print_lb(lb);
+
+	printf("%-30s", "6*Push b:");
+	ft_push_b(la, lb);
+	ft_push_b(la, lb);
+	ft_push_b(la, lb);
+	ft_push_b(la, lb);
+	ft_push_b(la, lb);
+	ft_push_b(la, lb);
+	print_la(la);
+	print_lb(lb);
+
+	printf("%-30s", "RevRotate b:");
+	ft_revrotate(lb);
+	print_la(la);
+	print_lb(lb);
+
+	printf("%-30s", "Rotate b:");
+	ft_rotate(lb);
+	print_la(la);
+	print_lb(lb);
 }
 
 // void		test_ft_list_len(void)
