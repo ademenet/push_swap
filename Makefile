@@ -6,7 +6,7 @@
 #    By: ademenet <ademenet@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2016/05/19 16:20:54 by ademenet          #+#    #+#              #
-#    Updated: 2016/05/19 16:28:04 by ademenet         ###   ########.fr        #
+#    Updated: 2016/05/19 16:29:49 by ademenet         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -54,6 +54,7 @@ OBJLIB = $(addprefix $(OBJLIB_PATH)/,$(OBJLIB_NAME))
 all: $(NAME)
 
 $(NAME): $(OBJ) $(OBJLIB)
+	gcc
 	@echo "\033[1;34mPush_swap\t\033[1;33mCompilation\t\033[0;32m[OK]\033[0m"
 
 $(OBJ_PATH)/%.o: $(SRC_PATH)/%.c
