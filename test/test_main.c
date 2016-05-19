@@ -453,21 +453,21 @@ void		test_ft_solving(void)
 	int		ac = 7;
 
 	av[0] = "a.out";
-	av[1] = "89";
+	av[1] = "8";
 	av[2] = "4";
 	av[3] = "1";
-	av[4] = "-8";
-	av[5] = "125";
-	av[6] = "78";
+	av[4] = "9";
+	av[5] = "12";
+	av[6] = "7";
 // Initializing my first list
 	la = ft_parsing(ac, av);
 	lb = ft_lstnew();
 
-	ft_quicksort(la, lb);
+	printf("[%d]\n", ft_findmax(la));
+	ft_sort_a(la);
 	print_la(la);
 	print_lb(lb);
 }
-
 
 int			main()
 {
@@ -475,7 +475,7 @@ int			main()
 	// test_ft_operations();
 	// test_ft_list_len();
 	// test_ft_example();
-	test_ft_solving();
 	// test_ft_sorts();
+	test_ft_solving();
 	return (0);
 }

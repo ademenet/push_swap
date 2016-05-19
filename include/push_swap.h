@@ -6,7 +6,7 @@
 /*   By: ademenet <ademenet@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/05/16 16:11:14 by ademenet          #+#    #+#             */
-/*   Updated: 2016/05/19 15:01:40 by ademenet         ###   ########.fr       */
+/*   Updated: 2016/05/19 16:47:10 by ademenet         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -102,9 +102,10 @@ void			ft_revrotate(t_list *l);
 ** ft_solving.c
 */
 
-void			ft_quicksort(t_list *la, t_list *lb);
+// void			ft_quicksort(t_list *la, t_list *lb);
 void			ft_sort_a(t_list *la);
-void			ft_sort_b(t_list *lb);
+// void			ft_sort_b(t_list *lb);
+int				ft_findmax(t_list *l);
 
 int				ft_printf(const char *format, ...);
 

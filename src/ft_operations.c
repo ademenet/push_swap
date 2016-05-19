@@ -6,7 +6,7 @@
 /*   By: ademenet <ademenet@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/05/17 13:47:22 by ademenet          #+#    #+#             */
-/*   Updated: 2016/05/19 14:19:57 by ademenet         ###   ########.fr       */
+/*   Updated: 2016/05/19 16:58:23 by ademenet         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,7 +30,6 @@ void			ft_revrotate(t_list *l)
 	// ft_printf("rra\n");
 }
 
-
 void			ft_rotate(t_list *l)
 {
 	t_node		*tmp;
@@ -42,7 +41,7 @@ void			ft_rotate(t_list *l)
 	l->tail->next = tmp;
 	l->tail = tmp;
 	l->tail->next = NULL;
-	// ft_printf("ra\n");
+	ft_printf("ra\n"); getchar();
 }
 
 void		ft_push_a(t_list *la, t_list *lb)
@@ -106,5 +105,5 @@ void		ft_swap(t_list *l)
 	tmp = l->head->next->v;
 	l->head->next->v = l->head->v;
 	l->head->v = tmp;
-	// ft_printf("sa\n");
+	ft_printf("sa\n");
 }
