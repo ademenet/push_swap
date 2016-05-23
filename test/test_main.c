@@ -463,8 +463,7 @@ void		test_ft_solving(void)
 	la = ft_parsing(ac, av);
 	lb = ft_lstnew();
 
-	printf("[%d]\n", ft_findmax(la));
-	ft_sort_a(la);
+	ft_sortmin(la, lb);
 	print_la(la);
 	print_lb(lb);
 }

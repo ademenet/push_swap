@@ -6,7 +6,7 @@
 /*   By: ademenet <ademenet@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/05/23 10:26:01 by ademenet          #+#    #+#             */
-/*   Updated: 2016/05/23 10:55:01 by ademenet         ###   ########.fr       */
+/*   Updated: 2016/05/23 11:28:48 by ademenet         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,16 +14,21 @@
 
 /*
 ** We wan't to use the minimums moves: so if I know where is localized my node
-** I could use either rotate or reverse rotate.
+** I could use either rotate or reverse rotate. To do so, we return list length
+** ratio / position.
 */
 
 int			ft_locateit(t_list *l)
 {
-	t_node	tmp;
+	t_node	*tmp;
+	int		index;
 
 	tmp = l->head;
+	index = 0;
 	while (tmp->next != NULL)
 	{
+		index++;
 		tmp = tmp->next;
 	}
+	return (l->len / index);
 }
