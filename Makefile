@@ -6,7 +6,7 @@
 #    By: ademenet <ademenet@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2016/05/19 16:20:54 by ademenet          #+#    #+#              #
-#    Updated: 2016/05/23 17:09:11 by ademenet         ###   ########.fr        #
+#    Updated: 2016/05/23 18:55:53 by ademenet         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -26,7 +26,8 @@ INC_PATH = ./include
 OBJ_PATH = ./obj
 OBJLIB_PATH = ./obj
 
-SRC_NAME =	ft_error.c\
+SRC_NAME =	ft_display.c\
+			ft_error.c\
 			ft_operations.c\
 			ft_optimization.c\
 			ft_parsing.c\

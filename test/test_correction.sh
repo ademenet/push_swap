@@ -23,7 +23,6 @@ printf "\033[34;1mShould return nothing (or empty line, it's okay)\033[0m\n"
 
 printf "\033[34;1mShould return Error (non digit arguments)\033[0m\n"
 ./push_swap 56 76 sig 67 62
-./push_swap 56 76 sig 67 62
 ./push_swap sig 56 121 45 5
 ./push_swap s
 

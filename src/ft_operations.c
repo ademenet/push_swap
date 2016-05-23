@@ -6,7 +6,7 @@
 /*   By: ademenet <ademenet@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/05/17 13:47:22 by ademenet          #+#    #+#             */
-/*   Updated: 2016/05/23 16:08:51 by ademenet         ###   ########.fr       */
+/*   Updated: 2016/05/23 18:46:27 by ademenet         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,13 +17,13 @@
 ** and swap. With these we have to sort n random int arguments.
 */
 
-void			ft_revrotate(t_list *l)
+t_list			*ft_revrotate(t_list *l, t_list *mv, int ab)
 {
 	t_node		*tmp;
 	t_node		*tta;
 
 	if (l->head == NULL || l->head == l->tail)
-		return ;
+		return (mv);
 	tmp = l->tail;
 	tta = l->head;
 	while (tta->next != tmp)
@@ -32,29 +32,29 @@ void			ft_revrotate(t_list *l)
 	l->tail->next = NULL;
 	tmp->next = l->head;
 	l->head = tmp;
-	ft_printf("rra\n");
+	return (mv = ft_lstappend(mv, 8 + ab));
 }
 
-void			ft_rotate(t_list *l)
+t_list			*ft_rotate(t_list *l, t_list *mv, int ab)
 {
 	t_node		*tmp;
 
 	if (l->head == NULL || l->head == l->tail)
-		return ;
+		return (mv);
 	tmp = l->head;
 	l->head = l->head->next;
 	l->tail->next = tmp;
 	l->tail = tmp;
 	l->tail->next = NULL;
-	ft_printf("ra\n");
+	return (mv = ft_lstappend(mv, 5 + ab));
 }
 
-void		ft_push_a(t_list *la, t_list *lb)
+t_list			*ft_push_a(t_list *la, t_list *lb, t_list *mv)
 {
-	t_node	*tmp;
+	t_node		*tmp;
 
 	if (lb->head == NULL)
-		return ;
+		return (mv);
 	else
 	{
 		tmp = lb->head;
@@ -72,15 +72,15 @@ void		ft_push_a(t_list *la, t_list *lb)
 		la->len++;
 		lb->len--;
 	}
-	ft_printf("pa\n");
+	return (mv = ft_lstappend(mv, 3));
 }
 
-void		ft_push_b(t_list *la, t_list *lb)
+t_list			*ft_push_b(t_list *la, t_list *lb, t_list *mv)
 {
-	t_node	*tmp;
+	t_node		*tmp;
 
 	if (la->head == NULL)
-		return ;
+		return (mv);
 	else
 	{
 		tmp = la->head;
@@ -98,17 +98,17 @@ void		ft_push_b(t_list *la, t_list *lb)
 		lb->len++;
 		la->len--;
 	}
-	ft_printf("pb\n");
+	return (mv = ft_lstappend(mv, 4));
 }
 
-void		ft_swap(t_list *l)
+t_list			*ft_swap(t_list *l, t_list *mv, int ab)
 {
-	int		tmp;
+	int			tmp;
 
 	if (l->head == NULL || l->head->next == NULL)
-		return ;
+		return (mv);
 	tmp = l->head->next->v;
 	l->head->next->v = l->head->v;
 	l->head->v = tmp;
-	ft_printf("sa\n");
+	return (mv = ft_lstappend(mv, 0 + ab));
 }

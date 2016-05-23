@@ -6,7 +6,7 @@
 /*   By: ademenet <ademenet@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/05/16 16:11:14 by ademenet          #+#    #+#             */
-/*   Updated: 2016/05/23 16:23:50 by ademenet         ###   ########.fr       */
+/*   Updated: 2016/05/23 18:49:52 by ademenet         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,26 +22,6 @@
 # define INT_MAX 2147483647
 # define INT_MIN -2147483648
 # define IS_INT(V) V >= INT_MIN && V <= INT_MAX
-
-/*
-** I dunno if I'm going to use those:
-*/
-
-int					g_min;
-int					g_max;
-int					g_pivot;
-
-/*
-** Same here, could be useful in order to call functions and/or displaying:
-*/
-
-typedef enum		e_move
-{
-	SA, SB, SS,
-	PA, PB,
-	RA, RB, RR,
-	RRA, RRB, RRR
-}					t_move;
 
 /*
 ** This is my structure list:
@@ -92,21 +72,35 @@ int				ft_isunique(t_list *list, int v);
 ** ft_operations.c
 */
 
-void			ft_swap(t_list *l);
-void			ft_push_a(t_list *la, t_list *lb);
-void			ft_push_b(t_list *la, t_list *lb);
-void			ft_rotate(t_list *l);
-void			ft_revrotate(t_list *l);
+t_list			*ft_swap(t_list *l, t_list *mv, int ab);
+t_list			*ft_push_a(t_list *la, t_list *lb, t_list *mv);
+t_list			*ft_push_b(t_list *la, t_list *lb, t_list *mv);
+t_list			*ft_rotate(t_list *l, t_list *mv, int ab);
+t_list			*ft_revrotate(t_list *l, t_list *mv, int ab);
 
 /*
 ** ft_sortmin.c
 */
 
 int				ft_findmin(t_list *l);
-void			ft_bubble(t_list *l, int min);
-void			ft_sortmin(t_list *la, t_list *lb);
+t_list			*ft_bubble(t_list *l, t_list *mv, int min);
+t_list			*ft_sortmin(t_list *la, t_list *lb, t_list *mv);
+
+/*
+** ft_optimization.c
+*/
 
 int				ft_locateit(t_list *l, int min);
+
+/*
+** ft_display.c
+*/
+
+void			ft_display(t_list *mv);
+
+/*
+** Guests
+*/
 
 int				ft_printf(const char *format, ...);
 

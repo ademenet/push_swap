@@ -6,7 +6,7 @@
 /*   By: ademenet <ademenet@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/05/18 10:45:20 by ademenet          #+#    #+#             */
-/*   Updated: 2016/05/23 16:15:19 by ademenet         ###   ########.fr       */
+/*   Updated: 2016/05/23 18:47:49 by ademenet         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -44,21 +44,22 @@ int			ft_findmin(t_list *l)
 ** it!
 */
 
-void		ft_bubble(t_list *l, int min)
+t_list		*ft_bubble(t_list *la, t_list *mv, int min)
 {
 	int		pos;
 
-	pos = ft_locateit(l, min);
+	pos = ft_locateit(la, min);
 	if (pos > 2)
 	{
-		while (l->head->v != min)
-			ft_rotate(l);
+		while (la->head->v != min)
+			mv = ft_rotate(la, mv, 0);
 	}
 	else if (pos <= 2)
 	{
-		while (l->head->v != min)
-			ft_revrotate(l);
+		while (la->head->v != min)
+			mv = ft_revrotate(la, mv, 0);
 	}
+	return (mv);
 }
 
 /*
@@ -66,7 +67,7 @@ void		ft_bubble(t_list *l, int min)
 ** b-stack. Yep, it's cruel.
 */
 
-void		ft_sortmin(t_list *la, t_list *lb)
+t_list		*ft_sortmin(t_list *la, t_list *lb, t_list *mv)
 {
 	t_node	*ta;
 	t_node	*tb;
@@ -77,9 +78,10 @@ void		ft_sortmin(t_list *la, t_list *lb)
 	while (la->len > 0)
 	{
 		min = ft_findmin(la);
-		ft_bubble(la, min);
-		ft_push_b(la, lb);
+		mv  = ft_bubble(la, mv, min);
+		mv = ft_push_b(la, lb, mv);
 	}
 	while (lb->len > 0)
-		ft_push_a(la, lb);
+		mv = ft_push_a(la, lb, mv);
+	return (mv);
 }
