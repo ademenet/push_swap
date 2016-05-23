@@ -50,8 +50,11 @@ printf "\033[34;1mTests with negatives and positives\033[0m\n"
 printf "\033[34;1mTests with only negatives\033[0m\n"
 ./push_swap -2 -5 -26 -7888 -998 -564 -12
 
-printf "\033[34;1mWhat is happening with a lot of parameters?\033[0m\n"
-./push_swap `ruby -e "puts (-1000..1000).to_a.shuffle.join(' ')"`
+if [ $1 = "big" ]
+then
+	printf "\033[34;1mWhat is happening with a lot of parameters?\033[0m\n"
+	./push_swap `ruby -e "puts (-1000..1000).to_a.shuffle.join(' ')"`
 
-printf "\033[34;1mWhat is happening with even more parameters?\033[0m\n"
-./push_swap `ruby -e "puts (-5000..5000).to_a.reverse.insert(rand(8000) + 1000, 10001).join(' ')"`
+	printf "\033[34;1mWhat is happening with even more parameters?\033[0m\n"
+	./push_swap `ruby -e "puts (-5000..5000).to_a.reverse.insert(rand(8000) + 1000, 10001).join(' ')"`
+fi
