@@ -6,10 +6,9 @@
 #    By: ademenet <ademenet@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2016/05/19 16:20:54 by ademenet          #+#    #+#              #
-#    Updated: 2016/05/19 16:29:49 by ademenet         ###   ########.fr        #
+#    Updated: 2016/05/23 17:09:11 by ademenet         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
-
 
 .PHONY: all clean fclean re norme
 
@@ -29,8 +28,10 @@ OBJLIB_PATH = ./obj
 
 SRC_NAME =	ft_error.c\
 			ft_operations.c\
+			ft_optimization.c\
 			ft_parsing.c\
-			ft_solving.c
+			ft_sortmin.c\
+			push_swap.c
 
 LIB_NAME = 	ft_atoi.c\
 			ft_isascending.c\
@@ -53,17 +54,21 @@ OBJLIB = $(addprefix $(OBJLIB_PATH)/,$(OBJLIB_NAME))
 
 all: $(NAME)
 
-$(NAME): $(OBJ) $(OBJLIB)
-	gcc
+$(NAME): $(OBJ) $(OBJLIB) $(FT_PRINTF)
+	@$(CC) -o $@ $^ ft_printf/libftprintf.a
 	@echo "\033[1;34mPush_swap\t\033[1;33mCompilation\t\033[0;32m[OK]\033[0m"
 
 $(OBJ_PATH)/%.o: $(SRC_PATH)/%.c
 	@mkdir $(OBJ_PATH) 2> /dev/null || true
-	@$(CC) -o $@ -c $<
+	@$(CC) -c -o $@ $<
 
 $(OBJLIB_PATH)/%.o: $(LIB_PATH)/%.c
 	@mkdir $(OBJLIB_PATH) 2> /dev/null || true
-	@$(CC) -o $@ -c $<
+	@$(CC) -c -o $@ $<
+
+$(FT_PRINTF):
+	@cd ft_printf
+	@make
 
 clean:
 	@rm -rf ./obj

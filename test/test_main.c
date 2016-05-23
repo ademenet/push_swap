@@ -444,7 +444,7 @@ void		print_lb(t_list *l)
 //
 // }
 
-void		test_ft_solving(void)
+void		test_ft_sortmin(void)
 {
 	setbuf(stdout, NULL);
 	t_list	*la = NULL;
@@ -476,6 +476,6 @@ int			main()
 	// test_ft_list_len();
 	// test_ft_example();
 	// test_ft_sorts();
-	test_ft_solving();
+	test_ft_sortmin();
 	return (0);
 }
