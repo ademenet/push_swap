@@ -6,7 +6,7 @@
 /*   By: ademenet <ademenet@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/05/18 10:45:20 by ademenet          #+#    #+#             */
-/*   Updated: 2016/05/23 11:27:51 by ademenet         ###   ########.fr       */
+/*   Updated: 2016/05/23 16:15:19 by ademenet         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -48,13 +48,13 @@ void		ft_bubble(t_list *l, int min)
 {
 	int		pos;
 
-	pos = ft_locateit(l);
+	pos = ft_locateit(l, min);
 	if (pos > 2)
 	{
 		while (l->head->v != min)
 			ft_rotate(l);
 	}
-	else if (pos < 2)
+	else if (pos <= 2)
 	{
 		while (l->head->v != min)
 			ft_revrotate(l);
@@ -62,18 +62,24 @@ void		ft_bubble(t_list *l, int min)
 }
 
 /*
-** Now, I'm looking for the minimum then let it climb the list and push it in
-** b-stack.
+** I'm looking for the minimum then let it climb the list and push it in
+** b-stack. Yep, it's cruel.
 */
 
 void		ft_sortmin(t_list *la, t_list *lb)
 {
+	t_node	*ta;
+	t_node	*tb;
 	int		min;
 
-	min = ft_findmin(la);
-	while (ft_issortasc(la))
+	ta = la->head;
+	tb = lb->head;
+	while (la->len > 0)
 	{
+		min = ft_findmin(la);
 		ft_bubble(la, min);
-		ft_push_a(la, lb);
+		ft_push_b(la, lb);
 	}
+	while (lb->len > 0)
+		ft_push_a(la, lb);
 }

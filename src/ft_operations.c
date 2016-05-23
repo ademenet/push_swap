@@ -6,7 +6,7 @@
 /*   By: ademenet <ademenet@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/05/17 13:47:22 by ademenet          #+#    #+#             */
-/*   Updated: 2016/05/23 11:03:05 by ademenet         ###   ########.fr       */
+/*   Updated: 2016/05/23 16:08:51 by ademenet         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,7 +32,7 @@ void			ft_revrotate(t_list *l)
 	l->tail->next = NULL;
 	tmp->next = l->head;
 	l->head = tmp;
-	// ft_printf("rra\n");
+	ft_printf("rra\n");
 }
 
 void			ft_rotate(t_list *l)
@@ -46,7 +46,7 @@ void			ft_rotate(t_list *l)
 	l->tail->next = tmp;
 	l->tail = tmp;
 	l->tail->next = NULL;
-	ft_printf("ra\n"); getchar();
+	ft_printf("ra\n");
 }
 
 void		ft_push_a(t_list *la, t_list *lb)
@@ -72,7 +72,7 @@ void		ft_push_a(t_list *la, t_list *lb)
 		la->len++;
 		lb->len--;
 	}
-	// ft_printf("pa\n");
+	ft_printf("pa\n");
 }
 
 void		ft_push_b(t_list *la, t_list *lb)
@@ -98,7 +98,7 @@ void		ft_push_b(t_list *la, t_list *lb)
 		lb->len++;
 		la->len--;
 	}
-	// ft_printf("pb\n");
+	ft_printf("pb\n");
 }
 
 void		ft_swap(t_list *l)

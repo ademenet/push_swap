@@ -6,7 +6,7 @@
 /*   By: ademenet <ademenet@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/05/16 16:11:14 by ademenet          #+#    #+#             */
-/*   Updated: 2016/05/23 11:28:16 by ademenet         ###   ########.fr       */
+/*   Updated: 2016/05/23 14:18:54 by ademenet         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -106,7 +106,7 @@ int				ft_findmin(t_list *l);
 void			ft_bubble(t_list *l, int min);
 void			ft_sortmin(t_list *la, t_list *lb);
 
-int				ft_locateit(t_list *l);
+int				ft_locateit(t_list *l, int min);
 
 int				ft_printf(const char *format, ...);
 

@@ -451,13 +451,14 @@ void		test_ft_solving(void)
 	t_list	*lb;
 	char	*av[7];
 	int		ac = 7;
+	int		min;
 
 	av[0] = "a.out";
-	av[1] = "8";
-	av[2] = "4";
-	av[3] = "1";
-	av[4] = "9";
-	av[5] = "12";
+	av[1] = "9";
+	av[2] = "2";
+	av[3] = "53";
+	av[4] = "49";
+	av[5] = "22";
 	av[6] = "7";
 // Initializing my first list
 	la = ft_parsing(ac, av);
