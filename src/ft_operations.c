@@ -6,11 +6,16 @@
 /*   By: ademenet <ademenet@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/05/17 13:47:22 by ademenet          #+#    #+#             */
-/*   Updated: 2016/05/19 16:58:23 by ademenet         ###   ########.fr       */
+/*   Updated: 2016/05/23 11:03:05 by ademenet         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../include/push_swap.h"
+
+/*
+** These functions are our basic moves: reverse rotate, rotate, push a, push b
+** and swap. With these we have to sort n random int arguments.
+*/
 
 void			ft_revrotate(t_list *l)
 {

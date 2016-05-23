@@ -1,24 +1,29 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_error.c                                         :+:      :+:    :+:   */
+/*   ft_optimization.c                                  :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: ademenet <ademenet@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2016/05/16 16:09:24 by ademenet          #+#    #+#             */
-/*   Updated: 2016/05/23 10:56:21 by ademenet         ###   ########.fr       */
+/*   Created: 2016/05/23 10:26:01 by ademenet          #+#    #+#             */
+/*   Updated: 2016/05/23 10:55:01 by ademenet         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../include/push_swap.h"
 
 /*
-** Because sometimes things goes wrong. Just say "Error" then exit the program.
+** We wan't to use the minimums moves: so if I know where is localized my node
+** I could use either rotate or reverse rotate.
 */
 
-int			ft_error(void)
+int			ft_locateit(t_list *l)
 {
-	write(2, "Error\n", 6);
-	exit (1);
-	return (0);
+	t_node	tmp;
+
+	tmp = l->head;
+	while (tmp->next != NULL)
+	{
+		tmp = tmp->next;
+	}
 }
