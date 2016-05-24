@@ -6,7 +6,7 @@
 /*   By: ademenet <ademenet@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/05/24 11:26:00 by ademenet          #+#    #+#             */
-/*   Updated: 2016/05/24 14:41:43 by ademenet         ###   ########.fr       */
+/*   Updated: 2016/05/24 18:40:31 by ademenet         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,36 +19,28 @@
 
 t_list		*ft_sortcocktail_a(t_list *l, t_list *mv)
 {
-	t_node	*tmp;
-	t_node	*ttl;
+	int		ttl;
 
-	tmp = l->head;
-	fprintf(stderr, "BONJOUR\n");
-	while (ft_isascending(tmp->v, tmp->next->v))
+	while (ft_issortasc(l))
 	{
-		ttl = l->tail;
-		fprintf(stderr, "ttl->v1 == %d\n", ttl->v);
-		while (tmp->next != ttl)
+		ttl = l->tail->v;
+		while (l->head->next->v != ttl)
 		{
-			fprintf(stderr, "[1]\n");
-			fprintf(stderr, "[2a] tmp->v == %d & %p\n", tmp->v, tmp->next);
-			mv = ft_rotate(l, mv, 0);
-			fprintf(stderr, "[2b] tmp->v == %d & %p\n", tmp->v, tmp->next);
-			if (tmp->v > tmp->next->v)
+			if (l->head->v > l->head->next->v)
 			{
-				fprintf(stderr, "[3]\n");
 				mv = ft_swap(l, mv, 0);
-				fprintf(stderr, "[4]\n");
+				print_la(l);
 			}
-			fprintf(stderr, "ttl->v2 == %d\n", ttl->v);
+			mv = ft_rotate(l, mv, 0);
+			print_la(l);
 		}
-		ttl = l->tail;
-		while (tmp->next != ttl)
+		printf("jai fini\n");
+		ttl = l->tail->v;
+		while (l->head->next->v != ttl)
 		{
-			mv = ft_revrotate(l, mv, 0);
-			if (tmp->v > tmp->next->v)
+			if (l->head->v > l->head->next->v)
 				mv = ft_swap(l, mv, 0);
-			fprintf(stderr, "ttl->v3 == %d\n", ttl->v);
+			mv = ft_revrotate(l, mv, 0);
 		}
 	}
 	return (mv);

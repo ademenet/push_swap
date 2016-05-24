@@ -6,7 +6,7 @@
 /*   By: ademenet <ademenet@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/05/23 10:26:01 by ademenet          #+#    #+#             */
-/*   Updated: 2016/05/23 14:19:31 by ademenet         ###   ########.fr       */
+/*   Updated: 2016/05/24 19:19:45 by ademenet         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,4 +31,16 @@ int			ft_locateit(t_list *l, int min)
 		tmp = tmp->next;
 	}
 	return (l->len / index);
+}
+
+/*
+** This function is useful only if my list is sorted but the minimum value is
+** not set to list start.
+*/
+
+t_list		*ft_isreverse(t_list *l, t_list *mv)
+{
+	while (ft_issortasc(l) == 1)
+		mv = ft_rotate(l, mv, 0);
+	return (mv);
 }

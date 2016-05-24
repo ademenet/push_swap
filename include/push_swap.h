@@ -6,7 +6,7 @@
 /*   By: ademenet <ademenet@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/05/16 16:11:14 by ademenet          #+#    #+#             */
-/*   Updated: 2016/05/24 12:58:16 by ademenet         ###   ########.fr       */
+/*   Updated: 2016/05/24 18:48:51 by ademenet         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -96,6 +96,7 @@ t_list				*ft_sortmin(t_list *la, t_list *lb, t_list *mv);
 */
 
 int					ft_locateit(t_list *l, int min);
+t_list				*ft_isreverse(t_list *l, t_list *mv);
 
 /*
 ** ft_display.c
@@ -104,10 +105,12 @@ int					ft_locateit(t_list *l, int min);
 void				ft_display(t_list *mv);
 
 /*
-** Guests
+** Guests and bonus
 */
 
 int					ft_printf(const char *format, ...);
+void				print_la(t_list *l);
+void				print_lb(t_list *l);
 
 /*
 ** Debug - to be cleaned

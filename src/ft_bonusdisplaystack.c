@@ -1,50 +1,41 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_issort.c                                        :+:      :+:    :+:   */
+/*   ft_bonusdisplaystack.c                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: ademenet <ademenet@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2016/05/18 16:30:29 by ademenet          #+#    #+#             */
-/*   Updated: 2016/05/24 18:58:55 by ademenet         ###   ########.fr       */
+/*   Created: 2016/05/24 14:59:20 by ademenet          #+#    #+#             */
+/*   Updated: 2016/05/24 15:12:20 by ademenet         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../include/push_swap.h"
 
-/*
-** Be careful: each functions return 0 if it's okay, otherwise it returns
-** how many errors we encounter.
-*/
-
-int			ft_issortasc(t_list *l)
+void		print_la(t_list *l)
 {
 	t_node	*tmp;
-	int		index;
 
 	tmp = l->head;
-	index = 0;
-	while (tmp->next != NULL)
+	ft_printf("la |");
+	while (tmp)
 	{
-		if (tmp->v > tmp->next->v)
-			index++;
+		ft_printf("%7d", tmp->v);
 		tmp = tmp->next;
 	}
-	return (index);
+	ft_printf("|\n");
 }
 
-int			ft_issortdes(t_list *l)
+void		print_lb(t_list *l)
 {
 	t_node	*tmp;
-	int		index;
 
 	tmp = l->head;
-	index = 0;
-	while (tmp->next != NULL)
+	ft_printf("lb |");
+	while (tmp)
 	{
-		if (tmp->v < tmp->next->v)
-			index++;
+		ft_printf("%7d", tmp->v);
 		tmp = tmp->next;
 	}
-	return (index);
+	ft_printf("|\n");
 }

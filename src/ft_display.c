@@ -6,7 +6,7 @@
 /*   By: ademenet <ademenet@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/05/23 17:16:25 by ademenet          #+#    #+#             */
-/*   Updated: 2016/05/24 14:31:58 by ademenet         ###   ########.fr       */
+/*   Updated: 2016/05/24 19:14:00 by ademenet         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,12 +24,14 @@ void				ft_display(t_list *mv)
 	t_node			*tmp;
 	int				len;
 
+	if (mv->head == NULL)
+		return ;
 	tmp = mv->head;
 	len = 0;
-	while (tmp->next != NULL)
+	while (tmp)
 	{
 		ft_printf(g_push_swap_moves[tmp->v]);
-		if (len < mv->len - 2)
+		if (len < mv->len - 1)
 			ft_printf(" ");
 		tmp = tmp->next;
 		len++;
