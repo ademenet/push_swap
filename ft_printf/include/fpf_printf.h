@@ -6,7 +6,7 @@
 /*   By: ademenet <ademenet@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/04/19 14:27:23 by ademenet          #+#    #+#             */
-/*   Updated: 2016/05/24 10:45:19 by ademenet         ###   ########.fr       */
+/*   Updated: 2016/05/24 11:01:10 by ademenet         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -53,7 +53,7 @@ typedef struct	s_spec
 
 void			fpf_end(t_flag *f);
 void			fpf_start(const char *format, t_flag *f, va_list *ap);
-int				fpf_printf(const char *format, ...);
+int				ft_printf(const char *format, ...);
 
 /*
 ** CHECKS

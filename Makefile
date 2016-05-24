@@ -6,7 +6,7 @@
 #    By: ademenet <ademenet@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2016/05/19 16:20:54 by ademenet          #+#    #+#              #
-#    Updated: 2016/05/24 10:42:37 by ademenet         ###   ########.fr        #
+#    Updated: 2016/05/24 10:59:11 by ademenet         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -26,21 +26,21 @@ INC_PATH = ./include
 OBJ_PATH = ./obj
 OBJLIB_PATH = ./obj
 
-SRC_NAME =	fpf_display.c\
-			fpf_error.c\
-			fpf_operations.c\
-			fpf_optimization.c\
-			fpf_parsing.c\
-			fpf_sortmin.c\
+SRC_NAME =	ft_display.c\
+			ft_error.c\
+			ft_operations.c\
+			ft_optimization.c\
+			ft_parsing.c\
+			ft_sortmin.c\
 			push_swap.c
 
-LIB_NAME = 	fpf_atoi.c\
-			fpf_isascending.c\
-			fpf_isdescending.c\
-			fpf_isdigit.c\
-			fpf_issort.c\
-			fpf_lstappend.c\
-			fpf_lstnew.c
+LIB_NAME = 	ft_atoi.c\
+			ft_isascending.c\
+			ft_isdescending.c\
+			ft_isdigit.c\
+			ft_issort.c\
+			ft_lstappend.c\
+			ft_lstnew.c
 
 INC_NAME = fpf_printf.h
 
@@ -56,7 +56,7 @@ OBJLIB = $(addprefix $(OBJLIB_PATH)/,$(OBJLIB_NAME))
 all: $(NAME)
 
 $(NAME): $(OBJ) $(OBJLIB) $(fpf_PRINTF)
-	@$(CC) -o $@ $^ fpf_printf/libftprintf.a
+	@$(CC) -o $@ $^ ft_printf/libftprintf.a
 	@echo "\033[1;34mPush_swap\t\033[1;33mCompilation\t\033[0;32m[OK]\033[0m"
 
 $(OBJ_PATH)/%.o: $(SRC_PATH)/%.c
