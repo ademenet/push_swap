@@ -6,7 +6,7 @@
 /*   By: ademenet <ademenet@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/04/26 13:58:05 by ademenet          #+#    #+#             */
-/*   Updated: 2016/05/23 11:00:20 by ademenet         ###   ########.fr       */
+/*   Updated: 2016/05/24 17:48:10 by ademenet         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,7 +26,7 @@ int				ft_isunique(t_list *list, int v)
 	count = 0;
 	if (tmp)
 	{
-		while (tmp->next != NULL)
+		while (tmp)
 		{
 			if (v == tmp->v)
 				ft_error();
