@@ -1,53 +1,41 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_buf.c                                           :+:      :+:    :+:   */
+/*   fpf_strlwr.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: ademenet <ademenet@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2016/05/11 15:36:02 by ademenet          #+#    #+#             */
-/*   Updated: 2016/05/13 14:58:47 by ademenet         ###   ########.fr       */
+/*   Created: 2015/12/17 10:30:04 by ademenet          #+#    #+#             */
+/*   Updated: 2016/05/24 10:44:40 by ademenet         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../include/ft_printf.h"
+#include <string.h>
 
-void				ft_bufset(void)
+static int		fpf_isupper(int c)
 {
-	int				n;
-
-	n = 0;
-	while (n < 4096)
-	{
-		g_buf[n] = '\0';
-		n++;
-	}
-	g_i = 0;
+	return ((unsigned char)c >= 'A' && (unsigned char)c <= 'Z');
 }
 
-void				ft_display(t_flag *f)
+static int		fpf_tolower(int c)
 {
-	f->ret += write(1, g_buf, g_i);
-	ft_bufset();
+	if (c >= 65 && c <= 90)
+		return (c + 32);
+	return (c);
 }
 
-void				ft_buf_null(t_flag *f)
+char			*fpf_strlwr(char *s1)
 {
-	static char		str[6] = "(null)";
-	int				i;
+	int		i;
 
 	i = 0;
-	while (str[i] != '\0')
+	if (!s1)
+		return (NULL);
+	while (s1[i] != '\0')
 	{
-		ft_buf(str[i], f);
+		if (fpf_isupper(s1[i]))
+			s1[i] = fpf_tolower(s1[i]);
 		i++;
 	}
-}
-
-void				ft_buf(char c, t_flag *f)
-{
-	g_buf[g_i] = c;
-	g_i++;
-	if (g_i == 4096)
-		ft_display(f);
+	return (s1);
 }

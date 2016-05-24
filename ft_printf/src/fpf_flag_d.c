@@ -1,18 +1,18 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_flag_d.c                                        :+:      :+:    :+:   */
+/*   fpf_flag_d.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: ademenet <ademenet@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/04/22 18:20:57 by ademenet          #+#    #+#             */
-/*   Updated: 2016/05/13 14:31:12 by ademenet         ###   ########.fr       */
+/*   Updated: 2016/05/24 10:46:22 by ademenet         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../include/ft_printf.h"
+#include "../include/fpf_printf.h"
 
-char	*ft_modifier_d(t_flag *f, va_list *ap)
+char	*fpf_modifier_d(t_flag *f, va_list *ap)
 {
 	intmax_t	data;
 	uintmax_t	data_max;
@@ -34,26 +34,26 @@ char	*ft_modifier_d(t_flag *f, va_list *ap)
 		data = (intmax_t)(va_arg(*ap, long));
 	else if (f->spe == 'd' || f->spe == 'i')
 		data = (intmax_t)(va_arg(*ap, int));
-	data_max = ft_sign(f, data);
-	return (ft_itoa_base(data_max, 10));
+	data_max = fpf_sign(f, data);
+	return (fpf_itoa_base(data_max, 10));
 }
 
-int		ft_handler_d(t_flag *f, va_list *ap)
+int		fpf_handler_d(t_flag *f, va_list *ap)
 {
 	static int	mask_d[13] = {0, 0, 2, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1};
 
-	ft_apply_mask(f, mask_d);
-	f->arg = ft_modifier_d(f, ap);
-	ft_handler_numb(f);
+	fpf_apply_mask(f, mask_d);
+	f->arg = fpf_modifier_d(f, ap);
+	fpf_handler_numb(f);
 	return (0);
 }
 
-int		ft_handler_wd(t_flag *f, va_list *ap)
+int		fpf_handler_wd(t_flag *f, va_list *ap)
 {
 	static int	mask_wd[13] = {0, 0, 2, 1, 1, 1, 1, 2, 2, 1, 2, 1, 1};
 
-	ft_apply_mask(f, mask_wd);
-	f->arg = ft_modifier_d(f, ap);
-	ft_handler_numb(f);
+	fpf_apply_mask(f, mask_wd);
+	f->arg = fpf_modifier_d(f, ap);
+	fpf_handler_numb(f);
 	return (0);
 }

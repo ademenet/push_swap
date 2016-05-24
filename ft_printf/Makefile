@@ -26,35 +26,35 @@ INC_PATH = ./include
 OBJ_PATH = ./obj
 OBJLIB_PATH = ./obj
 
-SRC_NAME =	ft_apply_flags.c\
-			ft_check.c\
-			ft_dispatcher.c\
-			ft_display_char.c\
-			ft_display_numb.c\
-			ft_flag_s.c\
-			ft_flag_c.c\
-			ft_flag_d.c\
-			ft_flag_p_undefined.c\
-			ft_flag_wu_wo.c\
-			ft_flag_u_o.c\
-			ft_flag_x.c\
-			ft_handler.c\
-			ft_printf.c\
-			ft_buf.c\
-			ft_transform_wchar.c\
-			ft_wildcard.c
+SRC_NAME =	fpf_apply_flags.c\
+			fpf_check.c\
+			fpf_dispatcher.c\
+			fpf_display_char.c\
+			fpf_display_numb.c\
+			fpf_flag_s.c\
+			fpf_flag_c.c\
+			fpf_flag_d.c\
+			fpf_flag_p_undefined.c\
+			fpf_flag_wu_wo.c\
+			fpf_flag_u_o.c\
+			fpf_flag_x.c\
+			fpf_handler.c\
+			fpf_printf.c\
+			fpf_buf.c\
+			fpf_transform_wchar.c\
+			fpf_wildcard.c
 
-LIB_NAME = 	ft_atoi.c\
-			ft_isdigit.c\
-			ft_itoa_base.c\
-			ft_strlen.c\
-			ft_strsub.c\
-			ft_wcharlen.c\
-			ft_strlwr.c\
-			ft_wstrlen.c\
-			ft_wstrsub.c
+LIB_NAME = 	fpf_atoi.c\
+			fpf_isdigit.c\
+			fpf_itoa_base.c\
+			fpf_strlen.c\
+			fpf_strsub.c\
+			fpf_wcharlen.c\
+			fpf_strlwr.c\
+			fpf_wstrlen.c\
+			fpf_wstrsub.c
 
-INC_NAME = ft_printf.h
+INC_NAME = fpf_printf.h
 
 OBJ_NAME = $(SRC_NAME:.c=.o)
 OBJLIB_NAME = $(LIB_NAME:.c=.o)

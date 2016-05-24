@@ -1,38 +1,20 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_wstrsub.c                                       :+:      :+:    :+:   */
+/*   fpf_strsub.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: ademenet <ademenet@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2016/05/11 10:26:11 by ademenet          #+#    #+#             */
-/*   Updated: 2016/05/13 14:45:10 by ademenet         ###   ########.fr       */
+/*   Created: 2015/11/26 11:16:23 by ademenet          #+#    #+#             */
+/*   Updated: 2016/05/24 10:45:06 by ademenet         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <stdlib.h>
 #include <string.h>
-#include "../include/ft_printf.h"
+#include "../include/fpf_printf.h"
 
-char		*ft_wstrsub(wchar_t *ws, unsigned int start, size_t len)
-{
-	int		real_len;
-	int		i;
-	char	*fresh;
-
-	real_len = 0;
-	i = 0;
-	while (ws[i] != '\0' && (int)len >= ft_wcharlen(ws[i]))
-	{
-		len -= ft_wcharlen(ws[i]);
-		real_len += ft_wcharlen(ws[i]);
-		i++;
-	}
-	fresh = ft_transform_wchar_in_char(ws);
-	return (ft_strsub_with_free(fresh, start, real_len));
-}
-
-char		*ft_strsub_with_free(char const *s, unsigned int start, size_t len)
+char	*fpf_strsub(char const *s, unsigned int start, size_t len)
 {
 	char	*fresh;
 	char	*tmp;
@@ -41,7 +23,6 @@ char		*ft_strsub_with_free(char const *s, unsigned int start, size_t len)
 	tmp = NULL;
 	if (!s)
 		return (NULL);
-	tmp = (char*)s;
 	fresh = malloc((len + 1) * sizeof(char));
 	i = 0;
 	if (!fresh)
@@ -54,6 +35,5 @@ char		*ft_strsub_with_free(char const *s, unsigned int start, size_t len)
 		start++;
 		len--;
 	}
-	free(tmp);
 	return (fresh);
 }

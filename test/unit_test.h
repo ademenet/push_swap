@@ -25,14 +25,14 @@
 
 /*
 ** This is how to use this unit-test header:
-** void	test_ft_test()
+** void	test_fpf_test()
 ** {
-**	check(ft_test(sthing) == "sthing");
+**	check(fpf_test(sthing) == "sthing");
 ** }
 **
 ** int		main(void)
 ** {
-**	MY_TEST("name of your function", test_ft_test);
+**	MY_TEST("name of your function", test_fpf_test);
 **	return (0);
 ** }
 */

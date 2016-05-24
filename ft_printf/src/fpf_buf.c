@@ -1,41 +1,53 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strlwr.c                                        :+:      :+:    :+:   */
+/*   fpf_buf.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: ademenet <ademenet@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2015/12/17 10:30:04 by ademenet          #+#    #+#             */
-/*   Updated: 2016/05/05 14:36:38 by ademenet         ###   ########.fr       */
+/*   Created: 2016/05/11 15:36:02 by ademenet          #+#    #+#             */
+/*   Updated: 2016/05/24 10:45:40 by ademenet         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <string.h>
+#include "../include/fpf_printf.h"
 
-static int		ft_isupper(int c)
+void				fpf_bufset(void)
 {
-	return ((unsigned char)c >= 'A' && (unsigned char)c <= 'Z');
+	int				n;
+
+	n = 0;
+	while (n < 4096)
+	{
+		g_buf[n] = '\0';
+		n++;
+	}
+	g_i = 0;
 }
 
-static int		ft_tolower(int c)
+void				fpf_display(t_flag *f)
 {
-	if (c >= 65 && c <= 90)
-		return (c + 32);
-	return (c);
+	f->ret += write(1, g_buf, g_i);
+	fpf_bufset();
 }
 
-char			*ft_strlwr(char *s1)
+void				fpf_buf_null(t_flag *f)
 {
-	int		i;
+	static char		str[6] = "(null)";
+	int				i;
 
 	i = 0;
-	if (!s1)
-		return (NULL);
-	while (s1[i] != '\0')
+	while (str[i] != '\0')
 	{
-		if (ft_isupper(s1[i]))
-			s1[i] = ft_tolower(s1[i]);
+		fpf_buf(str[i], f);
 		i++;
 	}
-	return (s1);
+}
+
+void				fpf_buf(char c, t_flag *f)
+{
+	g_buf[g_i] = c;
+	g_i++;
+	if (g_i == 4096)
+		fpf_display(f);
 }

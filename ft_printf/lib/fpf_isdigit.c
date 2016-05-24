@@ -1,41 +1,18 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_wstrlen.c                                       :+:      :+:    :+:   */
+/*   fpf_isdigit.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: ademenet <ademenet@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2016/05/10 15:59:17 by ademenet          #+#    #+#             */
-/*   Updated: 2016/05/12 14:03:35 by ademenet         ###   ########.fr       */
+/*   Created: 2015/11/24 17:05:25 by ademenet          #+#    #+#             */
+/*   Updated: 2016/05/24 10:44:35 by ademenet         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../include/ft_printf.h"
-
-size_t		ft_wbytelen(wchar_t *ws)
+int	fpf_isdigit(int c)
 {
-	size_t	len;
-	size_t	bytelen;
-
-	len = ft_wstrlen(ws);
-	bytelen = 0;
-	while (len > 0)
-	{
-		bytelen += ft_wcharlen(*ws);
-		ws++;
-		len--;
-	}
-	return (bytelen);
-}
-
-size_t		ft_wstrlen(wchar_t *ws)
-{
-	size_t	len;
-
-	len = 0;
-	if (!ws)
-		return (0);
-	while (*(ws++))
-		len++;
-	return (len);
+	if (c >= 48 && c <= 57)
+		return (1);
+	return (0);
 }

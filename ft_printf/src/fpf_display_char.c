@@ -1,18 +1,18 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_display_char.c                                  :+:      :+:    :+:   */
+/*   fpf_display_char.c                                 :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: ademenet <ademenet@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/04/30 15:41:52 by ademenet          #+#    #+#             */
-/*   Updated: 2016/05/13 14:48:39 by ademenet         ###   ########.fr       */
+/*   Updated: 2016/05/24 10:46:00 by ademenet         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../include/ft_printf.h"
+#include "../include/fpf_printf.h"
 
-void		ft_display_arg(t_flag *f)
+void		fpf_display_arg(t_flag *f)
 {
 	int		i;
 	size_t	len;
@@ -24,82 +24,82 @@ void		ft_display_arg(t_flag *f)
 		{
 			if (f->arg[0] == '\0' && (f->spe == 'C' ||
 				(f->spe == 'c' && f->fla[10] == 1)))
-				ft_buf('\0', f);
-			len = ft_strlen(f->arg);
+				fpf_buf('\0', f);
+			len = fpf_strlen(f->arg);
 			while (len-- > 0)
-				ft_buf(f->arg[++i], f);
+				fpf_buf(f->arg[++i], f);
 		}
 		else if (f->fla[0] != -1)
-			ft_buf_null(f);
+			fpf_buf_null(f);
 	}
 	else
 	{
 		while (f->arg[++i] != '\0')
-			ft_buf(f->arg[i], f);
+			fpf_buf(f->arg[i], f);
 	}
-	ft_end(f);
+	fpf_end(f);
 }
 
-int			ft_width_rest(t_flag *f)
+int			fpf_width_rest(t_flag *f)
 {
-	return (f->fla[1] - ft_strlen(f->arg));
+	return (f->fla[1] - fpf_strlen(f->arg));
 }
 
 /*
 ** Put 0 and space if width is bigger
 */
 
-void		ft_zero_char(t_flag *f)
+void		fpf_zero_char(t_flag *f)
 {
 	int		nb_space;
 
-	nb_space = ft_width_rest(f);
+	nb_space = fpf_width_rest(f);
 	if ((f->spe == 'c' && f->arg[0] == 0) || (f->spe == 'C' && f->arg[0] == 0))
 		nb_space--;
 	while (nb_space-- > 0)
 	{
 		if (f->fla[3] == 1 && f->fla[0] <= 0)
-			ft_buf('0', f);
+			fpf_buf('0', f);
 		else
-			ft_buf(' ', f);
+			fpf_buf(' ', f);
 	}
-	ft_display_arg(f);
+	fpf_display_arg(f);
 }
 
 /*
 ** Put string on the right, add 0 and space if width is bigger
 */
 
-void		ft_minus_char(t_flag *f)
+void		fpf_minus_char(t_flag *f)
 {
 	int		nb_space;
 
-	nb_space = ft_width_rest(f);
+	nb_space = fpf_width_rest(f);
 	if ((f->spe == 'c' && f->arg[0] == 0) || (f->spe == 'C' && f->arg[0] == 0))
 		nb_space--;
-	ft_display_arg(f);
+	fpf_display_arg(f);
 	while (nb_space-- > 0)
-		ft_buf(' ', f);
+		fpf_buf(' ', f);
 }
 
 /*
 ** Prends en compte la width
 */
 
-void		ft_width_char(t_flag *f)
+void		fpf_width_char(t_flag *f)
 {
 	int		i;
 
 	i = 0;
 	if (f->arg)
-		i = ft_strlen(f->arg);
+		i = fpf_strlen(f->arg);
 	if (i < f->fla[1])
 	{
 		if (f->fla[4] == 1)
-			ft_minus_char(f);
+			fpf_minus_char(f);
 		else
-			ft_zero_char(f);
+			fpf_zero_char(f);
 	}
 	else
-		ft_display_arg(f);
+		fpf_display_arg(f);
 }

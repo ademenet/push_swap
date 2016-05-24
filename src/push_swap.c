@@ -6,7 +6,7 @@
 /*   By: ademenet <ademenet@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/04/26 13:57:46 by ademenet          #+#    #+#             */
-/*   Updated: 2016/05/23 18:54:38 by ademenet         ###   ########.fr       */
+/*   Updated: 2016/05/24 09:36:20 by ademenet         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,7 +22,6 @@ int			main(int ac, char **av)
 	lb = ft_lstnew();
 	mv = ft_lstnew();
 	mv = ft_sortmin(la, lb, mv);
-	printf("%d %p\n", mv->head->v, mv->tail);
 	ft_display(mv);
 	return (0);
 }

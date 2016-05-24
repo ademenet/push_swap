@@ -1,39 +1,38 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strsub.c                                        :+:      :+:    :+:   */
+/*   fpf_atoi.c                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: ademenet <ademenet@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2015/11/26 11:16:23 by ademenet          #+#    #+#             */
-/*   Updated: 2016/05/13 09:12:38 by ademenet         ###   ########.fr       */
+/*   Created: 2015/11/24 17:27:36 by ademenet          #+#    #+#             */
+/*   Updated: 2016/05/24 10:44:32 by ademenet         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <stdlib.h>
 #include <string.h>
-#include "../include/ft_printf.h"
+#include "../include/fpf_printf.h"
 
-char	*ft_strsub(char const *s, unsigned int start, size_t len)
+long	fpf_atoi(const char *str)
 {
-	char	*fresh;
-	char	*tmp;
-	int		i;
+	long	sign;
+	long	nbr;
 
-	tmp = NULL;
-	if (!s)
-		return (NULL);
-	fresh = malloc((len + 1) * sizeof(char));
-	i = 0;
-	if (!fresh)
-		return (NULL);
-	fresh[len] = '\0';
-	while (len > 0)
+	sign = 1;
+	while (*str == ' ' || *str == '\f' || *str == '\n' || *str == '\r' ||
+			*str == '\t' || *str == '\v')
+		str++;
+	if (*str == '-' || *str == '+')
 	{
-		fresh[i] = s[start];
-		i++;
-		start++;
-		len--;
+		if (*str == '-')
+			sign = -1;
+		str++;
 	}
-	return (fresh);
+	nbr = 0;
+	while (fpf_isdigit((int)*str))
+	{
+		nbr = nbr * 10 + *str - '0';
+		str++;
+	}
+	return (sign * nbr);
 }

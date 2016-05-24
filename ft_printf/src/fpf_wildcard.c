@@ -1,38 +1,37 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_atoi.c                                          :+:      :+:    :+:   */
+/*   fpf_wildcard.c                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: ademenet <ademenet@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2015/11/24 17:27:36 by ademenet          #+#    #+#             */
-/*   Updated: 2016/04/29 15:27:43 by ademenet         ###   ########.fr       */
+/*   Created: 2016/05/14 16:41:44 by ademenet          #+#    #+#             */
+/*   Updated: 2016/05/24 10:47:27 by ademenet         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <string.h>
-#include "../include/ft_printf.h"
+#include "../include/fpf_printf.h"
 
-long	ft_atoi(const char *str)
+int			fpf_wildcard(t_flag *f, va_list *ap, int index)
 {
-	long	sign;
-	long	nbr;
-
-	sign = 1;
-	while (*str == ' ' || *str == '\f' || *str == '\n' || *str == '\r' ||
-			*str == '\t' || *str == '\v')
-		str++;
-	if (*str == '-' || *str == '+')
+	if (f->frmt[f->ndx] == '*')
 	{
-		if (*str == '-')
-			sign = -1;
-		str++;
+		f->fla[index] = va_arg(*ap, int);
+		if (f->fla[index] < 0)
+		{
+			if (index == 1)
+			{
+				f->fla[4] = 1;
+				f->fla[1] *= -1;
+			}
+			else if (index == 0)
+			{
+				f->fla[0] = 0;
+				f->ndx++;
+				return (0);
+			}
+		}
+		f->ndx++;
 	}
-	nbr = 0;
-	while (ft_isdigit((int)*str))
-	{
-		nbr = nbr * 10 + *str - '0';
-		str++;
-	}
-	return (sign * nbr);
+	return (1);
 }

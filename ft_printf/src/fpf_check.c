@@ -1,38 +1,38 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_check.c                                         :+:      :+:    :+:   */
+/*   fpf_check.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: ademenet <ademenet@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/04/25 12:24:50 by ademenet          #+#    #+#             */
-/*   Updated: 2016/05/14 17:33:22 by ademenet         ###   ########.fr       */
+/*   Updated: 2016/05/24 10:45:47 by ademenet         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../include/ft_printf.h"
+#include "../include/fpf_printf.h"
 
 /*
 ** This function reads each flags and call functions in order to save them.
 ** First, initialize our int array.
 */
 
-int			ft_check(t_flag *f, va_list *ap)
+int			fpf_check(t_flag *f, va_list *ap)
 {
-	ft_check_initialize(f);
+	fpf_check_initialize(f);
 	while (f->frmt[f->ndx] == '#' || f->frmt[f->ndx] == '0'
 		|| f->frmt[f->ndx] == '-' || f->frmt[f->ndx] == '+'
 		|| f->frmt[f->ndx] == ' ' || f->frmt[f->ndx] == 'h'
 		|| f->frmt[f->ndx] == 'l' || f->frmt[f->ndx] == 'j'
 		|| f->frmt[f->ndx] == 'z' || f->frmt[f->ndx] == '.'
-		|| f->frmt[f->ndx] == '*' || ft_isdigit(f->frmt[f->ndx]))
+		|| f->frmt[f->ndx] == '*' || fpf_isdigit(f->frmt[f->ndx]))
 	{
-		ft_check_flag(f);
-		ft_check_width(f, ap);
-		ft_check_precision(f, ap);
-		ft_check_modifier(f);
+		fpf_check_flag(f);
+		fpf_check_width(f, ap);
+		fpf_check_precision(f, ap);
+		fpf_check_modifier(f);
 	}
-	if (f->ndx == ft_strlen(f->frmt))
+	if (f->ndx == fpf_strlen(f->frmt))
 		return (-1);
 	return (0);
 }
@@ -42,7 +42,7 @@ int			ft_check(t_flag *f, va_list *ap)
 ** mask.
 */
 
-void		ft_check_flag(t_flag *f)
+void		fpf_check_flag(t_flag *f)
 {
 	if (f->frmt[f->ndx] == '#' || f->frmt[f->ndx] == '0'
 		|| f->frmt[f->ndx] == '-' || f->frmt[f->ndx] == '+'
@@ -66,32 +66,32 @@ void		ft_check_flag(t_flag *f)
 ** This function check the witdh if we find a digit.
 */
 
-void		ft_check_width(t_flag *f, va_list *ap)
+void		fpf_check_width(t_flag *f, va_list *ap)
 {
 	int		i;
 	char	*str;
 
 	i = f->ndx;
-	if (ft_isdigit(f->frmt[f->ndx]) && f->frmt[f->ndx] != '0')
+	if (fpf_isdigit(f->frmt[f->ndx]) && f->frmt[f->ndx] != '0')
 	{
-		while (ft_isdigit(f->frmt[f->ndx]))
+		while (fpf_isdigit(f->frmt[f->ndx]))
 			f->ndx++;
 		if (f->ndx - i > 0)
 		{
 			f->fla[1] = 0;
-			str = ft_strsub(f->frmt, i, f->ndx - i);
-			f->fla[1] = ft_atoi((const char*)str);
+			str = fpf_strsub(f->frmt, i, f->ndx - i);
+			f->fla[1] = fpf_atoi((const char*)str);
 			free(str);
 		}
 	}
-	ft_wildcard(f, ap, 1);
+	fpf_wildcard(f, ap, 1);
 }
 
 /*
 ** This function check the precision if we find a dot.
 */
 
-void		ft_check_precision(t_flag *f, va_list *ap)
+void		fpf_check_precision(t_flag *f, va_list *ap)
 {
 	int		i;
 	int		flag;
@@ -102,15 +102,15 @@ void		ft_check_precision(t_flag *f, va_list *ap)
 		f->fla[0] = 0;
 		i = ++f->ndx;
 		if (f->frmt[f->ndx] == '*')
-			flag = ft_wildcard(f, ap, 0);
+			flag = fpf_wildcard(f, ap, 0);
 		else
 		{
-			while (ft_isdigit(f->frmt[f->ndx]))
+			while (fpf_isdigit(f->frmt[f->ndx]))
 				f->ndx++;
 			if (f->ndx - i > 0)
 			{
-				str = ft_strsub(f->frmt, i, f->ndx - i);
-				f->fla[0] = ft_atoi((const char*)str);
+				str = fpf_strsub(f->frmt, i, f->ndx - i);
+				f->fla[0] = fpf_atoi((const char*)str);
 				free(str);
 			}
 		}
@@ -123,7 +123,7 @@ void		ft_check_precision(t_flag *f, va_list *ap)
 ** This function compare and analyse the modifiers.
 */
 
-void		ft_check_modifier(t_flag *f)
+void		fpf_check_modifier(t_flag *f)
 {
 	while (f->frmt[f->ndx] == 'h' || f->frmt[f->ndx] == 'l' ||
 		f->frmt[f->ndx] == 'j' || f->frmt[f->ndx] == 'z')

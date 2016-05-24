@@ -1,18 +1,18 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_handler.c                                       :+:      :+:    :+:   */
+/*   fpf_handler.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: ademenet <ademenet@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/05/03 18:49:48 by ademenet          #+#    #+#             */
-/*   Updated: 2016/05/13 16:56:02 by ademenet         ###   ########.fr       */
+/*   Updated: 2016/05/24 10:47:05 by ademenet         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../include/ft_printf.h"
+#include "../include/fpf_printf.h"
 
-void		ft_apply_mask(t_flag *f, int *mask)
+void		fpf_apply_mask(t_flag *f, int *mask)
 {
 	int		i;
 
@@ -24,21 +24,21 @@ void		ft_apply_mask(t_flag *f, int *mask)
 	}
 }
 
-int			ft_handler_char(t_flag *f)
+int			fpf_handler_char(t_flag *f)
 {
 	if (f->fla[0] != 0 && (f->spe != 'C' || (f->spe == 'c' && f->fla[10] == 1)))
-		ft_precision_string(f);
+		fpf_precision_string(f);
 	else if (f->spe == 'S' || (f->spe == 's' && f->fla[10] == 1) ||
 		f->spe == 'C' || (f->spe == 'c' && f->fla[10] == 1))
-		f->arg = ft_transform_wchar_in_char(f->warg);
+		f->arg = fpf_transform_wchar_in_char(f->warg);
 	if (f->fla[1] > 0)
-		ft_width_char(f);
+		fpf_width_char(f);
 	if (f->fla[1] == 0)
-		ft_display_arg(f);
+		fpf_display_arg(f);
 	return (1);
 }
 
-int			ft_handler_numb(t_flag *f)
+int			fpf_handler_numb(t_flag *f)
 {
 	int	i;
 
@@ -47,13 +47,13 @@ int			ft_handler_numb(t_flag *f)
 		(f->spe == 'o' || f->spe == 'O' || f->spe == 'p')))
 		f->arg = "\0";
 	if (f->fla[1] > 0)
-		ft_width_numb(f);
+		fpf_width_numb(f);
 	else if (f->fla[1] == 0 && f->fla[0] > 0)
-		ft_precision_without_width(f);
+		fpf_precision_without_width(f);
 	if (f->fla[0] <= 0 && f->fla[1] == 0)
-		ft_space_plus_sharp(f);
+		fpf_space_plus_sharp(f);
 	while (f->arg[++i] != '\0' && f->fla[1] == 0)
-		ft_buf(f->arg[i], f);
-	ft_end(f);
+		fpf_buf(f->arg[i], f);
+	fpf_end(f);
 	return (1);
 }
