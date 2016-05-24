@@ -6,7 +6,7 @@
 /*   By: ademenet <ademenet@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/05/17 13:47:22 by ademenet          #+#    #+#             */
-/*   Updated: 2016/05/23 18:46:27 by ademenet         ###   ########.fr       */
+/*   Updated: 2016/05/24 14:44:08 by ademenet         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -46,6 +46,11 @@ t_list			*ft_rotate(t_list *l, t_list *mv, int ab)
 	l->tail->next = tmp;
 	l->tail = tmp;
 	l->tail->next = NULL;
+	while (tmp->next != NULL)
+	{
+		fprintf(stderr, "ft_rotate\ttmp=>v [%d]\n", tmp->v);
+		tmp = tmp->next;
+	}
 	return (mv = ft_lstappend(mv, 5 + ab));
 }
 

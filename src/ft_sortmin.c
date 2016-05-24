@@ -6,7 +6,7 @@
 /*   By: ademenet <ademenet@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/05/18 10:45:20 by ademenet          #+#    #+#             */
-/*   Updated: 2016/05/23 18:47:49 by ademenet         ###   ########.fr       */
+/*   Updated: 2016/05/24 12:03:56 by ademenet         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,10 +22,10 @@
 ** Finding the minimum. Not a big deal but it could cost O(n) operations.
 */
 
-int			ft_findmin(t_list *l)
+int				ft_findmin(t_list *l)
 {
-	t_node	*tmp;
-	int		min;
+	t_node		*tmp;
+	int			min;
 
 	tmp = l->head;
 	min = tmp->v;
@@ -44,9 +44,9 @@ int			ft_findmin(t_list *l)
 ** it!
 */
 
-t_list		*ft_bubble(t_list *la, t_list *mv, int min)
+static t_list	*ft_bubble(t_list *la, t_list *mv, int min)
 {
-	int		pos;
+	int			pos;
 
 	pos = ft_locateit(la, min);
 	if (pos > 2)
@@ -67,18 +67,18 @@ t_list		*ft_bubble(t_list *la, t_list *mv, int min)
 ** b-stack. Yep, it's cruel.
 */
 
-t_list		*ft_sortmin(t_list *la, t_list *lb, t_list *mv)
+t_list			*ft_sortmin(t_list *la, t_list *lb, t_list *mv)
 {
-	t_node	*ta;
-	t_node	*tb;
-	int		min;
+	t_node		*ta;
+	t_node		*tb;
+	int			min;
 
 	ta = la->head;
 	tb = lb->head;
 	while (la->len > 0)
 	{
 		min = ft_findmin(la);
-		mv  = ft_bubble(la, mv, min);
+		mv = ft_bubble(la, mv, min);
 		mv = ft_push_b(la, lb, mv);
 	}
 	while (lb->len > 0)

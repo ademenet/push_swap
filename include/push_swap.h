@@ -6,7 +6,7 @@
 /*   By: ademenet <ademenet@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/05/16 16:11:14 by ademenet          #+#    #+#             */
-/*   Updated: 2016/05/23 18:49:52 by ademenet         ###   ########.fr       */
+/*   Updated: 2016/05/24 12:58:16 by ademenet         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -48,67 +48,72 @@ typedef struct		s_list
 ** Lib
 */
 
-t_list			*ft_lstnew(void);
-t_list			*ft_lstappend(t_list *list, int v);
-int				ft_isdigit(int c);
-int				ft_strisdigit(char *s);
-long			ft_atoi(const char *str);
-int				ft_isascending(int a, int b);
-int				ft_isdescending(int a, int b);
-int				ft_issortasc(t_list *l);
-int				ft_issortdes(t_list *l);
-int				ft_error(void);
+t_list				*ft_lstnew(void);
+t_list				*ft_lstappend(t_list *list, int v);
+int					ft_isdigit(int c);
+int					ft_strisdigit(char *s);
+long				ft_atoi(const char *str);
+int					ft_isascending(int a, int b);
+int					ft_isdescending(int a, int b);
+int					ft_issortasc(t_list *l);
+int					ft_issortdes(t_list *l);
+int					ft_error(void);
 
 /*
 ** ft_parsing.c
 */
 
-t_list			*ft_parsing(int ac, char **av);
-int				ft_check(t_list *list, char *av);
-int				ft_isint(t_list *list, char *av);
-int				ft_isunique(t_list *list, int v);
+t_list				*ft_parsing(int ac, char **av);
+int					ft_check(t_list *list, char *av);
+int					ft_isint(t_list *list, char *av);
+int					ft_isunique(t_list *list, int v);
 
 /*
 ** ft_operations.c
 */
 
-t_list			*ft_swap(t_list *l, t_list *mv, int ab);
-t_list			*ft_push_a(t_list *la, t_list *lb, t_list *mv);
-t_list			*ft_push_b(t_list *la, t_list *lb, t_list *mv);
-t_list			*ft_rotate(t_list *l, t_list *mv, int ab);
-t_list			*ft_revrotate(t_list *l, t_list *mv, int ab);
+t_list				*ft_swap(t_list *l, t_list *mv, int ab);
+t_list				*ft_push_a(t_list *la, t_list *lb, t_list *mv);
+t_list				*ft_push_b(t_list *la, t_list *lb, t_list *mv);
+t_list				*ft_rotate(t_list *l, t_list *mv, int ab);
+t_list				*ft_revrotate(t_list *l, t_list *mv, int ab);
+
+/*
+** ft_sortcocktail.c
+*/
+
+t_list				*ft_sortcocktail_a(t_list *l, t_list *mv);
 
 /*
 ** ft_sortmin.c
 */
 
-int				ft_findmin(t_list *l);
-t_list			*ft_bubble(t_list *l, t_list *mv, int min);
-t_list			*ft_sortmin(t_list *la, t_list *lb, t_list *mv);
+int					ft_findmin(t_list *l);
+t_list				*ft_sortmin(t_list *la, t_list *lb, t_list *mv);
 
 /*
 ** ft_optimization.c
 */
 
-int				ft_locateit(t_list *l, int min);
+int					ft_locateit(t_list *l, int min);
 
 /*
 ** ft_display.c
 */
 
-void			ft_display(t_list *mv);
+void				ft_display(t_list *mv);
 
 /*
 ** Guests
 */
 
-int				ft_printf(const char *format, ...);
+int					ft_printf(const char *format, ...);
 
 /*
 ** Debug - to be cleaned
 */
 
-void			print_la(t_list *l);
-void			print_lb(t_list *l);
+void				print_la(t_list *l);
+void				print_lb(t_list *l);
 
 #endif

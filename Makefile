@@ -6,7 +6,7 @@
 #    By: ademenet <ademenet@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2016/05/19 16:20:54 by ademenet          #+#    #+#              #
-#    Updated: 2016/05/24 10:59:11 by ademenet         ###   ########.fr        #
+#    Updated: 2016/05/24 12:59:37 by ademenet         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -31,6 +31,7 @@ SRC_NAME =	ft_display.c\
 			ft_operations.c\
 			ft_optimization.c\
 			ft_parsing.c\
+			ft_sortcocktail.c\
 			ft_sortmin.c\
 			push_swap.c
 
