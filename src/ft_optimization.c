@@ -6,7 +6,7 @@
 /*   By: ademenet <ademenet@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/05/23 10:26:01 by ademenet          #+#    #+#             */
-/*   Updated: 2016/05/24 19:19:45 by ademenet         ###   ########.fr       */
+/*   Updated: 2016/05/25 11:33:13 by ademenet         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -40,7 +40,20 @@ int			ft_locateit(t_list *l, int min)
 
 t_list		*ft_isreverse(t_list *l, t_list *mv)
 {
-	while (ft_issortasc(l) == 1)
-		mv = ft_rotate(l, mv, 0);
+	int		pos;
+	int		min;
+
+	min = ft_findmin(l);
+	pos = ft_locateit(l, min);
+	if (pos > 2)
+	{
+		while (ft_issortasc(l) == 1)
+			mv = ft_revrotate(l, mv, 0);
+	}
+	else if (pos <= 2)
+	{
+		while (ft_issortasc(l) == 1)
+			mv = ft_rotate(l, mv, 0);
+	}
 	return (mv);
 }
