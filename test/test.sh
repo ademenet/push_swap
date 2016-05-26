@@ -1,7 +1,6 @@
 #!/bin/sh
 
-gcc test_main.c
-				../src/ft_bonusdisplaystack.c\
+gcc test_main.c ../src/ft_bonusdisplaystack.c\
 				../src/ft_display.c\
 				../src/ft_dynamicalgorithm.c\
 				../src/ft_error.c\

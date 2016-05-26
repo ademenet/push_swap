@@ -479,7 +479,7 @@ void		test_ft_dyn_copy()
 
 	av[0] = "a.out";
 	av[1] = "1";
-	av[2] = "2";
+	av[2] = "6";
 	av[3] = "3";
 	av[4] = "4";
 	av[5] = "5";

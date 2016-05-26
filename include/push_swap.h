@@ -6,7 +6,7 @@
 /*   By: ademenet <ademenet@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/05/16 16:11:14 by ademenet          #+#    #+#             */
-/*   Updated: 2016/05/26 12:25:12 by ademenet         ###   ########.fr       */
+/*   Updated: 2016/05/26 12:36:13 by ademenet         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -130,8 +130,8 @@ void				ft_display(t_list *mv);
 */
 
 int					ft_printf(const char *format, ...);
-void				print_la(t_list *l);
-void				print_lb(t_list *l);
+void				ft_print_la(t_list *l);
+void				ft_print_lb(t_list *l);
 
 /*
 ** Debug - to be cleaned
