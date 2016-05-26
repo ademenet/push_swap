@@ -469,11 +469,37 @@ void		print_lb(t_list *l)
 // 	print_lb(lb);
 // }
 
-void		test_ft_dyn_copy()
+// void		test_ft_dyn_copy()
+// {
+// 	setbuf(stdout, NULL);
+// 	t_list	*mv = NULL;
+// 	t_list	*sol;
+// 	char	*av[7];
+// 	int		ac = 7;
+//
+// 	av[0] = "a.out";
+// 	av[1] = "1";
+// 	av[2] = "6";
+// 	av[3] = "3";
+// 	av[4] = "4";
+// 	av[5] = "5";
+// 	av[6] = "8";
+// // Initializing my first list
+// 	mv = ft_parsing(ac, av);
+// 	sol = ft_lstnew();
+//
+// 	print_la(mv);
+// 	print_lb(sol);
+// 	sol = ft_dyn_copy(mv, sol);
+// 	print_la(mv);
+// 	print_lb(sol);
+// }
+
+void		test_ft_dyn_resolve()
 {
 	setbuf(stdout, NULL);
-	t_list	*mv = NULL;
-	t_list	*sol;
+	t_list	*l = NULL;
+	t_list	*mv;
 	char	*av[7];
 	int		ac = 7;
 
@@ -485,12 +511,11 @@ void		test_ft_dyn_copy()
 	av[5] = "5";
 	av[6] = "8";
 // Initializing my first list
-	mv = ft_parsing(ac, av);
-	sol = ft_lstnew();
-
-	ft_dyn_copy(mv, sol);
-	print_la(mv);
-	print_lb(sol);
+	l = ft_parsing(ac, av);
+	mv = ft_lstnew();
+	print_la(l);
+	mv = ft_dyn_resolve(l, mv);
+	ft_display(mv);
 }
 
 int			main()
@@ -501,6 +526,7 @@ int			main()
 	// test_ft_example();
 	// test_ft_sorts();
 	// test_ft_sortmin();
-	test_ft_dyn_copy();
+	// test_ft_dyn_copy();
+	test_ft_dyn_resolve();
 	return (0);
 }

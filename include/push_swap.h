@@ -6,7 +6,7 @@
 /*   By: ademenet <ademenet@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/05/16 16:11:14 by ademenet          #+#    #+#             */
-/*   Updated: 2016/05/26 12:36:13 by ademenet         ###   ########.fr       */
+/*   Updated: 2016/05/26 18:54:53 by ademenet         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,11 +18,13 @@
 # include <string.h>
 
 # include <stdio.h> // for debugging
+# define DB(A) printf("%d\n", A);
+# define DS(S) printf("%s\n", S);
 
 # define INT_MAX 2147483647
 # define INT_MIN -2147483648
 # define IS_INT(V) V >= INT_MIN && V <= INT_MAX
-# define DP 15
+# define DP 6
 
 /*
 ** This is my structure list:
@@ -62,6 +64,7 @@ typedef struct		s_dyn
 
 t_list				*ft_lstnew(void);
 t_list				*ft_lstappend(t_list *list, int v);
+void				ft_lstdellastone(t_list *l);
 int					ft_isdigit(int c);
 int					ft_strisdigit(char *s);
 long				ft_atoi(const char *str);
@@ -95,6 +98,8 @@ t_list				*ft_revrotate(t_list *l, t_list *mv, int ab);
 ** ft_dynamicalgorithm.c
 */
 
+t_list				*ft_dyn_clean(t_list *l, t_list *mv);
+t_list				*ft_dyn_selectmove(t_list *l, t_list *mv);
 t_list				*ft_dyn_copy(t_list *mv, t_list *sol);
 int					ft_dyn_explore(t_list *l, t_list *mv, t_list *sol, long count);
 t_list				*ft_dyn_resolve(t_list *l, t_list *mv);
@@ -132,12 +137,5 @@ void				ft_display(t_list *mv);
 int					ft_printf(const char *format, ...);
 void				ft_print_la(t_list *l);
 void				ft_print_lb(t_list *l);
-
-/*
-** Debug - to be cleaned
-*/
-
-void				print_la(t_list *l);
-void				print_lb(t_list *l);
 
 #endif

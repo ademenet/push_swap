@@ -6,7 +6,7 @@
 /*   By: ademenet <ademenet@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/05/17 13:47:22 by ademenet          #+#    #+#             */
-/*   Updated: 2016/05/24 18:17:11 by ademenet         ###   ########.fr       */
+/*   Updated: 2016/05/26 16:44:25 by ademenet         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,6 +32,8 @@ t_list			*ft_revrotate(t_list *l, t_list *mv, int ab)
 	l->tail->next = NULL;
 	tmp->next = l->head;
 	l->head = tmp;
+	if (ab < 0)
+		return (NULL);
 	return (mv = ft_lstappend(mv, 8 + ab));
 }
 
@@ -48,6 +50,8 @@ t_list			*ft_rotate(t_list *l, t_list *mv, int ab)
 	l->tail->next = NULL;
 	while (tmp->next != NULL)
 		tmp = tmp->next;
+	if (ab < 0)
+		return (NULL);
 	return (mv = ft_lstappend(mv, 5 + ab));
 }
 
@@ -112,5 +116,7 @@ t_list			*ft_swap(t_list *l, t_list *mv, int ab)
 	tmp = l->head->next->v;
 	l->head->next->v = l->head->v;
 	l->head->v = tmp;
+	if (ab < 0)
+		return (NULL);
 	return (mv = ft_lstappend(mv, 0 + ab));
 }
