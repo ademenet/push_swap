@@ -6,7 +6,7 @@
 /*   By: ademenet <ademenet@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/05/23 10:26:01 by ademenet          #+#    #+#             */
-/*   Updated: 2016/05/25 11:33:13 by ademenet         ###   ########.fr       */
+/*   Updated: 2016/05/25 14:44:13 by ademenet         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -57,3 +57,15 @@ t_list		*ft_isreverse(t_list *l, t_list *mv)
 	}
 	return (mv);
 }
+
+// t_list		*ft_simplesort(t_list *l, t_list *mv)
+// {
+// 	t_node	*tmp;
+//
+// 	tmp = l->head;
+// 	while (ft_issortasc(l))
+// 	{
+// 		if (tmp->v > tmp->next->v)
+//
+// 	}
+// }

@@ -6,7 +6,7 @@
 /*   By: ademenet <ademenet@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/05/16 16:11:14 by ademenet          #+#    #+#             */
-/*   Updated: 2016/05/24 18:48:51 by ademenet         ###   ########.fr       */
+/*   Updated: 2016/05/26 12:25:12 by ademenet         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,6 +22,7 @@
 # define INT_MAX 2147483647
 # define INT_MIN -2147483648
 # define IS_INT(V) V >= INT_MIN && V <= INT_MAX
+# define DP 15
 
 /*
 ** This is my structure list:
@@ -45,6 +46,17 @@ typedef struct		s_list
 }					t_list;
 
 /*
+** For dynamic programing, we going to need this specific structure:
+*/
+
+typedef struct		s_dyn
+{
+	int				mv[DP];
+	int				size;
+	int				nb;
+}					t_dyn;
+
+/*
 ** Lib
 */
 
@@ -58,6 +70,7 @@ int					ft_isdescending(int a, int b);
 int					ft_issortasc(t_list *l);
 int					ft_issortdes(t_list *l);
 int					ft_error(void);
+long				ft_power(int nb, int exp);
 
 /*
 ** ft_parsing.c
@@ -77,6 +90,14 @@ t_list				*ft_push_a(t_list *la, t_list *lb, t_list *mv);
 t_list				*ft_push_b(t_list *la, t_list *lb, t_list *mv);
 t_list				*ft_rotate(t_list *l, t_list *mv, int ab);
 t_list				*ft_revrotate(t_list *l, t_list *mv, int ab);
+
+/*
+** ft_dynamicalgorithm.c
+*/
+
+t_list				*ft_dyn_copy(t_list *mv, t_list *sol);
+int					ft_dyn_explore(t_list *l, t_list *mv, t_list *sol, long count);
+t_list				*ft_dyn_resolve(t_list *l, t_list *mv);
 
 /*
 ** ft_sortcocktail.c
