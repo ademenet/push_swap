@@ -6,7 +6,7 @@
 #    By: ademenet <ademenet@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2016/05/19 16:20:54 by ademenet          #+#    #+#              #
-#    Updated: 2016/05/26 16:29:08 by ademenet         ###   ########.fr        #
+#    Updated: 2016/05/27 17:32:51 by ademenet         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -28,6 +28,7 @@ OBJLIB_PATH = ./obj
 
 SRC_NAME =	ft_bonusdisplaystack.c\
 			ft_display.c\
+			ft_dynamicalgorithm.c\
 			ft_error.c\
 			ft_operations.c\
 			ft_optimization.c\
@@ -42,7 +43,9 @@ LIB_NAME = 	ft_atoi.c\
 			ft_isdigit.c\
 			ft_issort.c\
 			ft_lstappend.c\
-			ft_lstnew.c
+			ft_lstnew.c\
+			ft_lstutils.c\
+			ft_power.c
 
 INC_NAME = fpf_printf.h
 

@@ -490,6 +490,9 @@ void		test_ft_dyn_resolve()
 	mv = ft_dyn_resolve(l);
 	ft_print_l(mv, "mv");
 	ft_display(mv);
+	ft_lstclear(mv);
+	ft_lstclear(l);
+	while (1);
 }
 
 int			main()

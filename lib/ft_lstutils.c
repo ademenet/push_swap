@@ -6,7 +6,7 @@
 /*   By: ademenet <ademenet@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/05/26 16:20:47 by ademenet          #+#    #+#             */
-/*   Updated: 2016/05/27 14:31:36 by ademenet         ###   ########.fr       */
+/*   Updated: 2016/05/27 16:44:41 by ademenet         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -48,4 +48,10 @@ void		ft_lstdelallnodes(t_list *l)
 		l->tail = NULL;
 		l->len = 0;
 	}
+}
+
+void		ft_lstclear(t_list *l)
+{
+	ft_lstdelallnodes(l);
+	free(l);
 }

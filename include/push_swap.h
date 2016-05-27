@@ -6,7 +6,7 @@
 /*   By: ademenet <ademenet@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/05/16 16:11:14 by ademenet          #+#    #+#             */
-/*   Updated: 2016/05/27 16:35:12 by ademenet         ###   ########.fr       */
+/*   Updated: 2016/05/27 17:13:23 by ademenet         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,8 +18,6 @@
 # include <string.h>
 
 # include <stdio.h> // for debugging
-# define DB(A) printf(">>>%d<<<\n", A);
-# define DS(S) printf("%s\n", S);
 
 # define INT_MAX 2147483647
 # define INT_MIN -2147483648
@@ -48,15 +46,10 @@ typedef struct		s_list
 }					t_list;
 
 /*
-** For dynamic programing, we going to need this specific structure:
+** push_swap.c
 */
 
-typedef struct		s_dyn
-{
-	int				mv[DP];
-	int				size;
-	int				nb;
-}					t_dyn;
+t_list				*ft_choose(t_list *la, t_list *lb);
 
 /*
 ** Lib
@@ -66,6 +59,7 @@ t_list				*ft_lstnew(void);
 t_list				*ft_lstappend(t_list *list, int v);
 void				ft_lstdellastone(t_list *l);
 void				ft_lstdelallnodes(t_list *l);
+void				ft_lstclear(t_list *l);
 int					ft_isdigit(int c);
 int					ft_strisdigit(char *s);
 long				ft_atoi(const char *str);
