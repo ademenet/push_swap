@@ -471,13 +471,19 @@ void		test_ft_dyn_resolve()
 	setbuf(stdout, NULL);
 	t_list	*l = NULL;
 	t_list	*mv;
-	char	*av[4];
-	int		ac = 4;
+	char	*av[9];
+	int		ac = 9;
 
 	av[0] = "a.out";
-	av[1] = "2";
-	av[2] = "1";
-	av[3] = "3";
+	av[1] = "4";
+	av[2] = "6";
+	av[3] = "10";
+	av[4] = "12";
+	av[5] = "19";
+	av[6] = "25";
+	av[7] = "36";
+	av[8] = "29";
+
 // Initializing my first list
 	l = ft_parsing(ac, av);
 	mv = ft_lstnew();
