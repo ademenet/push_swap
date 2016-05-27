@@ -6,7 +6,7 @@
 #    By: ademenet <ademenet@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2016/05/19 16:20:54 by ademenet          #+#    #+#              #
-#    Updated: 2016/05/27 17:32:51 by ademenet         ###   ########.fr        #
+#    Updated: 2016/05/27 19:06:51 by ademenet         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -60,7 +60,8 @@ OBJLIB = $(addprefix $(OBJLIB_PATH)/,$(OBJLIB_NAME))
 
 all: $(NAME)
 
-$(NAME): $(OBJ) $(OBJLIB) $(ft_PRINTF)
+$(NAME): $(OBJ) $(OBJLIB)
+	@make -C ft_printf/
 	@$(CC) -o $@ $^ ft_printf/libftprintf.a
 	@echo "\033[1;34mPush_swap\t\033[1;33mCompilation\t\033[0;32m[OK]\033[0m"
 
@@ -72,15 +73,13 @@ $(OBJLIB_PATH)/%.o: $(LIB_PATH)/%.c
 	@mkdir $(OBJLIB_PATH) 2> /dev/null || true
 	@$(CC) -c -o $@ $<
 
-$(ft_PRINTF):
-	@cd ft_printf
-	@make
-
 clean:
+	@make clean -C ft_printf/
 	@rm -rf ./obj
 	@echo "\033[1;34mPush_swap\t\033[1;33mCleaning obj\t\033[0;32m[OK]\033[0m"
 
 fclean: clean
+	@make fclean -C ft_printf/
 	@rm -rf $(NAME)
 	@echo "\033[1;34mPush_swap\t\033[1;33mCleaning lib\t\033[0;32m[OK]\033[0m"
 
