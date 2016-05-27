@@ -6,7 +6,7 @@
 /*   By: ademenet <ademenet@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/05/25 14:31:35 by ademenet          #+#    #+#             */
-/*   Updated: 2016/05/26 17:45:35 by ademenet         ###   ########.fr       */
+/*   Updated: 2016/05/27 10:52:23 by ademenet         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,13 +23,16 @@
 
 t_list			*ft_dyn_clean(t_list *l, t_list *mv)
 {
+	DB(40)
 	if (mv->tail->v == 0)
 		ft_swap(l, mv, -1);
 	else if (mv->tail->v == 5)
 		ft_revrotate(l, mv, -1);
 	else if (mv->tail->v == 8)
 		ft_rotate(l, mv, -1);
+	ft_print_l(l, "la");
 	ft_lstdellastone(mv);
+	ft_print_l(mv, "mv");
 	return (mv);
 }
 
@@ -41,21 +44,83 @@ t_list			*ft_dyn_selectmove(t_list *l, t_list *mv)
 {
 	t_node		*tmv;
 
+	DS("selectmove")
 	tmv = mv->head;
-	while (tmv->next != mv->tail)
+	while (tmv->next != mv->tail && mv->tail != mv->head) // tmv = avant-dernier
 		tmv = tmv->next;
-	if ((tmv->v == 0 && mv->tail->v == 5) || mv->head->next == NULL) // sa puis ra
-		mv = ft_revrotate(l, mv, 0); // rra
-	else if (tmv->v == 0 && mv->tail->v == 8) // sa puis rra
-		mv = ft_rotate(l, mv, 0); // ra
-	else if ((tmv->v == 5 && mv->tail->v == 0) || mv->head->next == NULL) // ra puis sa
-		mv = ft_rotate(l, mv, 0); // ra
-	else if (tmv->v == 5 && mv->tail->v == 5) // ra puis ra
-		mv = ft_swap(l, mv, 0); // sa
-	else if ((tmv->v == 8 && mv->tail->v == 0) || mv->head->next == NULL) // rra puis sa
-		mv = ft_revrotate(l, mv, 0); // rra
-	else if (tmv->v == 8 && mv->tail->v == 8) // rra puis sa
-		mv = ft_swap(l, mv, 0); // sa
+	printf("tmv->v == (%d)\n", tmv->v);
+	if (mv->tail->v == 0)
+	{
+		DS("j'ai fait un swap")
+		if (tmv->v)
+		{
+			DS("du coup, je fais un rotate")
+			mv = ft_rotate(l, mv, 0); // ra
+		}
+		else
+		{
+			DS("du coup, je fais un revrotate")
+			mv = ft_revrotate(l, mv, 0); // rra
+		}
+	}
+	else if (mv->tail->v == 5)
+	{
+		DS("j'ai fait un rotate")
+		if (tmv->v)
+		{
+			DS("du coup, je refais un rotate")
+			mv = ft_rotate(l, mv, 0); // ra
+		}
+		else
+		{
+			DS("du coup, je fais un swap")
+			mv = ft_swap(l, mv, 0); // rra
+		}
+	}
+	else if (mv->tail->v == 8)
+	{
+		DS("j'ai fait un revrotate")
+		if (tmv->v)
+		{
+			DS("du coup, je fais un revrotate again")
+			mv = ft_revrotate(l, mv, 0); // ra
+		}
+		else
+		{
+			DS("du coup, je fais un swap")
+			mv = ft_swap(l, mv, 0); // rra
+		}
+	}
+	// if ((tmv->v == 0 && mv->tail->v == 5) || mv->head->next == NULL) // sa puis ra
+	// {
+	// 	DB(30)
+	// 	mv = ft_revrotate(l, mv, 0); // rra
+	// }
+	// else if (tmv->v == 0 && mv->tail->v == 8) // sa puis rra
+	// {
+	// 	DB(31)
+	// 	mv = ft_rotate(l, mv, 0); // ra
+	// }
+	// else if ((tmv->v == 5 && mv->tail->v == 0) || mv->head->next == NULL) // ra puis sa
+	// {
+	// 	DB(32)
+	// 	mv = ft_rotate(l, mv, 0); // ra
+	// }
+	// else if (tmv->v == 5 && mv->tail->v == 5) // ra puis ra
+	// {
+	// 	DB(33)
+	// 	mv = ft_swap(l, mv, 0); // sa
+	// }
+	// else if ((tmv->v == 8 && mv->tail->v == 0) || mv->head->next == NULL) // rra puis sa
+	// {
+	// 	DB(34)
+	// 	mv = ft_revrotate(l, mv, 0); // rra
+	// }
+	// else if (tmv->v == 8 && mv->tail->v == 8) // rra puis sa
+	// {
+	// 	DB(35)
+	// 	mv = ft_swap(l, mv, 0); // sa
+	// }
 	return (mv);
 }
 
@@ -87,27 +152,32 @@ t_list			*ft_dyn_copy(t_list *mv, t_list *sol)
 
 int				ft_dyn_explore(t_list *l, t_list *mv, t_list *sol, long count)
 {
-	static int	index;
+	static int	index = 0;
 
 	DB(2)
-	index = 1;
+	count++;
 	if (count > ft_power(2, DP) - 1)
 		return (0);
 	if (ft_issortasc(l) == 0 && index < DP + 1)
 		sol = ft_dyn_copy(mv, sol);
-	while (index < DP + 1)
+	while (index++ < DP + 1)
 	{
 		DB(3)
 		mv = ft_dyn_selectmove(l, mv);
+		ft_print_l(l, "la");
+		ft_print_l(mv, "mv");
+		ft_print_l(sol, "sol");
+		printf("count | %ld |\n", count);
+		printf("index | %d |\n", index);
 		DB(4)
-		ft_dyn_explore(l, mv, sol, count++);
+		ft_dyn_explore(l, mv, sol, count);
 		DB(5)
-		index++;
 	}
 	DB(6)
 	mv = ft_dyn_clean(l, mv);
+	index--;
 	DB(7)
-	return (0);
+	return (1);
 }
 
 /*
@@ -118,9 +188,17 @@ int				ft_dyn_explore(t_list *l, t_list *mv, t_list *sol, long count)
 t_list			*ft_dyn_resolve(t_list *l, t_list *mv)
 {
 	t_list		*sol;
+	long		count;
 
+	sol = ft_lstnew();
+	count = 0;
 	mv = ft_swap(l, mv, 0);
 	DB(1)
-	ft_dyn_explore(l, mv, sol, 1);
+	ft_dyn_explore(l, mv, sol, count);
+
+	ft_print_l(l, "la");
+	ft_print_l(mv, "mv");
+	ft_print_l(sol, "sol");
+
 	return (sol);
 }

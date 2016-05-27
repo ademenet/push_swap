@@ -6,7 +6,7 @@
 /*   By: ademenet <ademenet@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/05/26 16:20:47 by ademenet          #+#    #+#             */
-/*   Updated: 2016/05/26 16:58:43 by ademenet         ###   ########.fr       */
+/*   Updated: 2016/05/27 10:59:35 by ademenet         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,6 +24,7 @@ void		ft_lstdellastone(t_list *l)
 			tmp = tmp->next;
 		del = l->tail;
 		l->tail = tmp;
+		l->tail->next = NULL;
 		free (del);
 		l->len--;
 	}

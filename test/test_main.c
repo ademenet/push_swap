@@ -2,35 +2,6 @@
 #include "unit_test.h"
 #include "../include/push_swap.h"
 
-void		print_la(t_list *l)
-{
-	t_node	*tmp;
-
-	tmp = l->head;
-	fprintf(stdout, "la |");
-	while (tmp)
-	{
-		fprintf(stdout, "%5d", tmp->v);
-		tmp = tmp->next;
-	}
-	fprintf(stdout, "|\n");
-}
-
-void		print_lb(t_list *l)
-{
-	t_node	*tmp;
-
-	tmp = l->head;
-	fprintf(stdout, "lb |");
-	while (tmp)
-	{
-		fprintf(stdout, "%5d", tmp->v);
-		tmp = tmp->next;
-	}
-	fprintf(stdout, "|\n");
-}
-
-
 // void		test_ft_parsing(void)
 // {
 // 	setbuf(stdout, NULL); // disable buffering on STDOUT
@@ -500,20 +471,18 @@ void		test_ft_dyn_resolve()
 	setbuf(stdout, NULL);
 	t_list	*l = NULL;
 	t_list	*mv;
-	char	*av[7];
-	int		ac = 7;
+	char	*av[4];
+	int		ac = 4;
 
 	av[0] = "a.out";
-	av[1] = "1";
-	av[2] = "6";
+	av[1] = "2";
+	av[2] = "1";
 	av[3] = "3";
-	av[4] = "4";
-	av[5] = "5";
-	av[6] = "8";
 // Initializing my first list
 	l = ft_parsing(ac, av);
 	mv = ft_lstnew();
-	print_la(l);
+	ft_print_l(mv, "mv"); getchar();
+	ft_print_l(l, "l"); getchar();
 	mv = ft_dyn_resolve(l, mv);
 	ft_display(mv);
 }
