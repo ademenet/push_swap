@@ -486,10 +486,9 @@ void		test_ft_dyn_resolve()
 
 // Initializing my first list
 	l = ft_parsing(ac, av);
-	mv = ft_lstnew();
-	ft_print_l(mv, "mv"); getchar();
-	ft_print_l(l, "l"); getchar();
-	mv = ft_dyn_resolve(l, mv);
+	ft_print_l(l, "l");
+	mv = ft_dyn_resolve(l);
+	ft_print_l(mv, "mv");
 	ft_display(mv);
 }
 

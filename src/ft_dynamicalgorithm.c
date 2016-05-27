@@ -6,7 +6,7 @@
 /*   By: ademenet <ademenet@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/05/25 14:31:35 by ademenet          #+#    #+#             */
-/*   Updated: 2016/05/27 13:08:13 by ademenet         ###   ########.fr       */
+/*   Updated: 2016/05/27 16:35:02 by ademenet         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,16 +23,13 @@
 
 t_list			*ft_dyn_clean(t_list *l, t_list *mv)
 {
-	DB(40)
 	if (mv->tail->v == 0)
 		ft_swap(l, mv, -1);
 	else if (mv->tail->v == 5)
 		ft_revrotate(l, mv, -1);
 	else if (mv->tail->v == 8)
 		ft_rotate(l, mv, -1);
-	ft_print_l(l, "la");
 	ft_lstdellastone(mv);
-	ft_print_l(mv, "mv");
 	return (mv);
 }
 
@@ -48,56 +45,11 @@ t_list			*ft_dyn_selectmove(t_list *l, t_list *mv, int swt)
 	while (tmv->next != mv->tail && mv->tail != mv->head)
 		tmv = tmv->next;
 	if (mv->tail->v == 0)
-	{
-		if (swt == 0)
-			mv = ft_revrotate(l, mv, 0);
-		else
-			mv = ft_rotate(l, mv, 0);
-	}
+		swt == 0 ? ft_revrotate(l, mv, 0) : ft_rotate(l, mv, 0);
 	else if (mv->tail->v == 5)
-	{
-		if (swt == 0)
-			mv = ft_rotate(l, mv, 0);
-		else
-			mv = ft_swap(l, mv, 0);
-	}
+		swt == 0 ? ft_rotate(l, mv, 0) : ft_swap(l, mv, 0);
 	else if (mv->tail->v == 8)
-	{
-		if (swt == 0)
-			mv = ft_revrotate(l, mv, 0);
-		else
-			mv = ft_swap(l, mv, 0);
-	}
-	// if ((tmv->v == 0 && mv->tail->v == 5) || mv->head->next == NULL) // sa puis ra
-	// {
-	// 	DB(30)
-	// 	mv = ft_revrotate(l, mv, 0); // rra
-	// }
-	// else if (tmv->v == 0 && mv->tail->v == 8) // sa puis rra
-	// {
-	// 	DB(31)
-	// 	mv = ft_rotate(l, mv, 0); // ra
-	// }
-	// else if ((tmv->v == 5 && mv->tail->v == 0) || mv->head->next == NULL) // ra puis sa
-	// {
-	// 	DB(32)
-	// 	mv = ft_rotate(l, mv, 0); // ra
-	// }
-	// else if (tmv->v == 5 && mv->tail->v == 5) // ra puis ra
-	// {
-	// 	DB(33)
-	// 	mv = ft_swap(l, mv, 0); // sa
-	// }
-	// else if ((tmv->v == 8 && mv->tail->v == 0) || mv->head->next == NULL) // rra puis sa
-	// {
-	// 	DB(34)
-	// 	mv = ft_revrotate(l, mv, 0); // rra
-	// }
-	// else if (tmv->v == 8 && mv->tail->v == 8) // rra puis sa
-	// {
-	// 	DB(35)
-	// 	mv = ft_swap(l, mv, 0); // sa
-	// }
+		swt == 0 ? ft_revrotate(l, mv, 0) : ft_swap(l, mv, 0);
 	return (mv);
 }
 
@@ -113,6 +65,7 @@ t_list			*ft_dyn_copy(t_list *mv, t_list *sol)
 	tmp = mv->head;
 	if (mv->len < sol->len || sol->len == 0)
 	{
+		ft_lstdelallnodes(sol);
 		while (tmp)
 		{
 			ft_lstappend(sol, tmp->v);
@@ -130,39 +83,23 @@ t_list			*ft_dyn_copy(t_list *mv, t_list *sol)
 int				ft_dyn_explore(t_list *l, t_list *mv, t_list *sol, int index)
 {
 	static long	count = 0;
-	int swt;
+	int			swt;
 
-printf("Je lance dyn_explore la %ld (count)eme fois.\n", count);
 	count++;
 	swt = 0;
 	if (count > ft_power(2, DP) - 1)
 	{
-DS("J'ai atteint la limite max, je sors.")
+		count = 0;
 		return (0);
 	}
-	if (ft_issortasc(l) == 0 && index < DP + 1)
-	{
-DS("J'ai trouve une solution, je la copie.")
+	if (ft_issortasc(l) == 0)
 		sol = ft_dyn_copy(mv, sol);
-	}
 	while (index++ < DP + 1)
 	{
-DS("Je rentre dans ma boucle.")
-DS("Je vais selectionner mon mouvement")
 		mv = ft_dyn_selectmove(l, mv, swt);
-ft_print_l(l, "la");
-ft_print_l(mv, "mv");
-ft_print_l(sol, "sol");
-printf("count while | %ld |\n", count);
-printf("index while | %d |\n", index);
-DS("Je fais ma recursive.")
 		swt = ft_dyn_explore(l, mv, sol, index);
-DS("Je sors de ma recursive.")
-DS("Je vais cleaner le dernier maillon et la liste")
 		mv = ft_dyn_clean(l, mv);
 	}
-DS("je suis sorti de ma boucle")
-getchar();
 	return (1);
 }
 
@@ -171,19 +108,28 @@ getchar();
 ** start movements.
 */
 
-t_list			*ft_dyn_resolve(t_list *l, t_list *mv)
+t_list			*ft_dyn_resolve(t_list *l)
 {
 	t_list		*sol;
+	t_list		*mv1;
+	t_list		*mv2;
+	t_list		*mv3;
 	int			index;
+	int ret;
 
+	mv1 = ft_lstnew();
+	mv2 = ft_lstnew();
+	mv3 = ft_lstnew();
 	sol = ft_lstnew();
 	index = 1;
-	mv = ft_revrotate(l, mv, 0);
-	DB(1)
-	while (ft_dyn_explore(l, mv, sol, index));
-	ft_print_l(l, "la");
-	ft_print_l(mv, "mv");
-	ft_print_l(sol, "sol");
-
+	mv1 = ft_swap(l, mv1, 0);
+	ft_dyn_explore(l, mv1, sol, index);
+	ft_swap(l, mv1, 0);
+	mv2 = ft_rotate(l, mv2, 0);
+	ret = ft_dyn_explore(l, mv2, sol, index);
+	ft_revrotate(l, mv2, 0);
+	mv3 = ft_revrotate(l, mv3, 0);
+	ret = ft_dyn_explore(l, mv3, sol, index);
+	ft_rotate(l, mv2, 0);
 	return (sol);
 }
