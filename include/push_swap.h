@@ -6,7 +6,7 @@
 /*   By: ademenet <ademenet@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/05/16 16:11:14 by ademenet          #+#    #+#             */
-/*   Updated: 2016/05/27 17:13:23 by ademenet         ###   ########.fr       */
+/*   Updated: 2016/05/27 17:58:34 by ademenet         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,6 +18,7 @@
 # include <string.h>
 
 # include <stdio.h> // for debugging
+# define DB(A) printf(">>>%d<<<\n", A);
 
 # define INT_MAX 2147483647
 # define INT_MIN -2147483648
@@ -49,7 +50,7 @@ typedef struct		s_list
 ** push_swap.c
 */
 
-t_list				*ft_choose(t_list *la, t_list *lb);
+t_list				*ft_choose(t_list *la, t_list *lb, t_list *sol);
 
 /*
 ** Lib

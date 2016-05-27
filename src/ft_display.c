@@ -6,7 +6,7 @@
 /*   By: ademenet <ademenet@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/05/23 17:16:25 by ademenet          #+#    #+#             */
-/*   Updated: 2016/05/24 19:14:00 by ademenet         ###   ########.fr       */
+/*   Updated: 2016/05/27 17:46:38 by ademenet         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,4 +36,5 @@ void				ft_display(t_list *mv)
 		tmp = tmp->next;
 		len++;
 	}
+	ft_printf("\nNombre de coups : %d\n", len);
 }

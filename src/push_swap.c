@@ -6,7 +6,7 @@
 /*   By: ademenet <ademenet@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/04/26 13:57:46 by ademenet          #+#    #+#             */
-/*   Updated: 2016/05/27 17:31:31 by ademenet         ###   ########.fr       */
+/*   Updated: 2016/05/27 18:39:30 by ademenet         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,36 +18,35 @@
 ** complexes algorithms.
 */
 
-t_list		*ft_choose(t_list *la, t_list *lb)
+t_list		*ft_choose(t_list *la, t_list *lb, t_list *sol)
 {
-	t_list	*mv1;
-	t_list	*mv2;
-	t_list	*mv3;
-	t_list	*sol;
+	t_list	*cur;
 
-	mv1 = ft_lstnew();
-	mv2 = ft_lstnew();
-	mv3 = ft_lstnew();
-	sol = NULL;
+	cur = ft_lstnew();
 	if (ft_issortasc(la))
 	{
-		mv3 = ft_sortmin(la, lb, mv3);
-		sol = mv3;
-		if (la->len < 11)
-			mv1 = ft_dyn_resolve(la);
-		if (mv1->head != NULL && mv1->len < sol->len)
+		if (la->len < 20)
 		{
-			sol = mv1;
-			ft_lstclear(mv3);
+			cur = ft_dyn_resolve(la);
+			ft_dyn_copy(cur, sol);
+			ft_lstdelallnodes(cur);
 		}
-		mv2 = ft_isreverse(la, mv2);
-		if (mv2->head != NULL && mv2->len < sol->len)
-		{
-			sol = mv2;
-			ft_lstclear(mv1);
-			ft_lstclear(mv3);
-		}
+		cur = ft_sortmin(la, lb, cur);
+		if (sol->head != NULL && cur->len < sol->len)
+			ft_dyn_copy(cur, sol);
+		else if (sol->head == NULL)
+			ft_dyn_copy(cur, sol);
+		ft_lstdelallnodes(cur);
+		// if (ft_issortasc(la) == 1)
+		// {
+		// 	cur = ft_isreverse(la, cur);
+		// 	ft_print_l(cur, "cur isreverse");
+		// 	if (cur->len < sol->len)
+		// 		sol = ft_dyn_copy(cur, sol);
+		// 	ft_lstdelallnodes(cur);
+		// }
 	}
+	free (cur);
 	return (sol);
 }
 
@@ -57,11 +56,12 @@ int			main(int ac, char **av)
 	t_list	*lb;
 	t_list	*sol;
 
+	sol = ft_lstnew();
 	if (ac == 1)
 		return (0);
 	la = ft_parsing(ac, av);
 	lb = ft_lstnew();
-	sol = ft_choose(la, lb);
+	ft_choose(la, lb, sol);
 	ft_display(sol);
 	ft_lstclear(sol);
 	ft_lstclear(la);
