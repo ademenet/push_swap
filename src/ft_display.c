@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_display.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: ademenet <ademenet@student.42.fr>          +#+  +:+       +#+        */
+/*   By: alain <alain@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/05/23 17:16:25 by ademenet          #+#    #+#             */
-/*   Updated: 2016/05/27 19:20:32 by ademenet         ###   ########.fr       */
+/*   Updated: 2016/05/28 16:21:04 by alain            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,7 +19,7 @@
 const static char	*g_push_swap_moves[11] = { "sa", "sb", "ss", "pa", "pb",
 	"ra", "rb", "rr", "rra", "rrb", "rrr" };
 
-void				ft_display(t_list *mv)
+void				ft_display(t_list *mv, int bonus)
 {
 	t_node			*tmp;
 	int				len;
@@ -37,5 +37,6 @@ void				ft_display(t_list *mv)
 		len++;
 	}
 	ft_printf("\n");
-	// ft_printf("\nNombre de coups : %d\n", len);
+	if (bonus == 1)
+		ft_printf("\nNombre de coups : %d\n", len);
 }

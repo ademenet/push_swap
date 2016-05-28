@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   push_swap.h                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: ademenet <ademenet@student.42.fr>          +#+  +:+       +#+        */
+/*   By: alain <alain@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/05/16 16:11:14 by ademenet          #+#    #+#             */
-/*   Updated: 2016/05/27 19:12:24 by ademenet         ###   ########.fr       */
+/*   Updated: 2016/05/28 16:29:27 by alain            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -70,12 +70,13 @@ int					ft_issortasc(t_list *l);
 int					ft_issortdes(t_list *l);
 int					ft_error(void);
 long				ft_power(int nb, int exp);
+int					ft_strcmp(const char *s1, const char *s2);
 
 /*
 ** ft_parsing.c
 */
 
-t_list				*ft_parsing(int ac, char **av);
+t_list				*ft_parsing(int ac, char **av, int *bonus);
 int					ft_check(t_list *list, char *av);
 int					ft_isint(t_list *list, char *av);
 int					ft_isunique(t_list *list, int v);
@@ -124,7 +125,7 @@ t_list				*ft_isreverse(t_list *l, t_list *mv);
 ** ft_display.c
 */
 
-void				ft_display(t_list *mv);
+void				ft_display(t_list *mv, int bonus);
 
 /*
 ** Guests and bonus

@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_parsing.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: ademenet <ademenet@student.42.fr>          +#+  +:+       +#+        */
+/*   By: alain <alain@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/04/26 13:58:05 by ademenet          #+#    #+#             */
-/*   Updated: 2016/05/24 17:48:10 by ademenet         ###   ########.fr       */
+/*   Updated: 2016/05/28 16:29:08 by alain            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -61,7 +61,7 @@ int				ft_check(t_list *list, char *av)
 ** We parse and check at the same time. What else?
 */
 
-t_list			*ft_parsing(int ac, char **av)
+t_list			*ft_parsing(int ac, char **av, int *bonus)
 {
 	t_list		*la;
 	int			v;
@@ -69,6 +69,11 @@ t_list			*ft_parsing(int ac, char **av)
 
 	la = ft_lstnew();
 	i = 1;
+	if (ft_strcmp(av[1], "-v") == 0)
+	{
+		*bonus = 1;
+		i++;
+	}
 	while (i < ac)
 	{
 		v = ft_check(la, av[i]);

@@ -59,6 +59,12 @@ echo './push_swap -2147483649'
 echo './push_swap -29999999999'
 ./push_swap -29999999999
 
+printf "\n\033[34;1mTest the limit int, should work\033[0m\n"
+echo './push_swap 2147483647 1'
+./push_swap 2147483647 1
+echo './push_swap -2147483648 1'
+./push_swap -2147483648 1
+
 printf "\n\033[34;1mShould return no operations\033[0m\n"
 echo './push_swap 2'
 ./push_swap 2
@@ -87,4 +93,11 @@ then
 	printf "\n\033[34;1mWhat is happening with even more parameters?\033[0m\n"
 	echo './push_swap `ruby -e "puts (-5000..5000).to_a.reverse.insert(rand(8000) + 1000, 10001).join(' ')"`'
 	./push_swap `ruby -e "puts (-5000..5000).to_a.reverse.insert(rand(8000) + 1000, 10001).join(' ')"`
+fi
+
+if [ "$1" = "big3" ]
+then
+	printf "\n\033[34;1mWith 2000 arguments from 0 to 1999 random\033[0m\n"
+	echo './push_swap `python randomnb.py`'
+	./push_swap `python test/randomnb.py`
 fi

@@ -3,10 +3,10 @@
 #                                                         :::      ::::::::    #
 #    Makefile                                           :+:      :+:    :+:    #
 #                                                     +:+ +:+         +:+      #
-#    By: ademenet <ademenet@student.42.fr>          +#+  +:+       +#+         #
+#    By: alain <alain@student.42.fr>                +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2016/05/19 16:20:54 by ademenet          #+#    #+#              #
-#    Updated: 2016/05/27 19:06:51 by ademenet         ###   ########.fr        #
+#    Updated: 2016/05/28 16:24:03 by alain            ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -45,7 +45,8 @@ LIB_NAME = 	ft_atoi.c\
 			ft_lstappend.c\
 			ft_lstnew.c\
 			ft_lstutils.c\
-			ft_power.c
+			ft_power.c\
+			ft_strcmp.c
 
 INC_NAME = fpf_printf.h
 

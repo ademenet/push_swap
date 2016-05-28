@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   push_swap.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: ademenet <ademenet@student.42.fr>          +#+  +:+       +#+        */
+/*   By: alain <alain@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/04/26 13:57:46 by ademenet          #+#    #+#             */
-/*   Updated: 2016/05/27 18:39:30 by ademenet         ###   ########.fr       */
+/*   Updated: 2016/05/28 16:30:04 by alain            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -37,14 +37,6 @@ t_list		*ft_choose(t_list *la, t_list *lb, t_list *sol)
 		else if (sol->head == NULL)
 			ft_dyn_copy(cur, sol);
 		ft_lstdelallnodes(cur);
-		// if (ft_issortasc(la) == 1)
-		// {
-		// 	cur = ft_isreverse(la, cur);
-		// 	ft_print_l(cur, "cur isreverse");
-		// 	if (cur->len < sol->len)
-		// 		sol = ft_dyn_copy(cur, sol);
-		// 	ft_lstdelallnodes(cur);
-		// }
 	}
 	free (cur);
 	return (sol);
@@ -55,14 +47,16 @@ int			main(int ac, char **av)
 	t_list	*la;
 	t_list	*lb;
 	t_list	*sol;
+	int		bonus;
 
 	sol = ft_lstnew();
+	bonus = 0;
 	if (ac == 1)
 		return (0);
-	la = ft_parsing(ac, av);
+	la = ft_parsing(ac, av, &bonus);
 	lb = ft_lstnew();
 	ft_choose(la, lb, sol);
-	ft_display(sol);
+	ft_display(sol, bonus);
 	ft_lstclear(sol);
 	ft_lstclear(la);
 	ft_lstclear(lb);
