@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_sortmin.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: ademenet <ademenet@student.42.fr>          +#+  +:+       +#+        */
+/*   By: alain <alain@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/05/18 10:45:20 by ademenet          #+#    #+#             */
-/*   Updated: 2016/05/24 12:03:56 by ademenet         ###   ########.fr       */
+/*   Updated: 2016/05/28 12:14:21 by alain            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,7 +29,7 @@ int				ft_findmin(t_list *l)
 
 	tmp = l->head;
 	min = tmp->v;
-	while (tmp->next != NULL)
+	while (tmp)
 	{
 		if (tmp->v < min)
 			min = tmp->v;
