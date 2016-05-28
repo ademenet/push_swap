@@ -6,7 +6,7 @@
 /*   By: ademenet <ademenet@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/05/26 16:20:47 by ademenet          #+#    #+#             */
-/*   Updated: 2016/05/27 16:44:41 by ademenet         ###   ########.fr       */
+/*   Updated: 2016/05/28 18:37:43 by ademenet         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,7 +25,7 @@ void		ft_lstdellastone(t_list *l)
 		del = l->tail;
 		l->tail = tmp;
 		l->tail->next = NULL;
-		free (del);
+		free(del);
 		l->len--;
 	}
 }
@@ -42,7 +42,7 @@ void		ft_lstdelallnodes(t_list *l)
 		{
 			del = tmp;
 			tmp = tmp->next;
-			free (del);
+			free(del);
 		}
 		l->head = NULL;
 		l->tail = NULL;

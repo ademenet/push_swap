@@ -6,7 +6,7 @@
 /*   By: ademenet <ademenet@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/05/25 14:31:35 by ademenet          #+#    #+#             */
-/*   Updated: 2016/05/27 18:19:05 by ademenet         ###   ########.fr       */
+/*   Updated: 2016/05/28 18:36:55 by ademenet         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -116,7 +116,6 @@ t_list			*ft_dyn_resolve(t_list *l)
 	t_list		*mv2;
 	t_list		*mv3;
 	int			index;
-	int ret;
 
 	mv1 = ft_lstnew();
 	mv2 = ft_lstnew();
@@ -127,10 +126,10 @@ t_list			*ft_dyn_resolve(t_list *l)
 	ft_dyn_explore(l, mv1, sol, index);
 	ft_swap(l, mv1, 0);
 	mv2 = ft_rotate(l, mv2, 0);
-	ret = ft_dyn_explore(l, mv2, sol, index);
+	ft_dyn_explore(l, mv2, sol, index);
 	ft_revrotate(l, mv2, 0);
 	mv3 = ft_revrotate(l, mv3, 0);
-	ret = ft_dyn_explore(l, mv3, sol, index);
+	ft_dyn_explore(l, mv3, sol, index);
 	ft_rotate(l, mv2, 0);
 	return (sol);
 }

@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   push_swap.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: alain <alain@student.42.fr>                +#+  +:+       +#+        */
+/*   By: ademenet <ademenet@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/04/26 13:57:46 by ademenet          #+#    #+#             */
-/*   Updated: 2016/05/28 16:30:04 by alain            ###   ########.fr       */
+/*   Updated: 2016/05/28 18:35:27 by ademenet         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -38,7 +38,7 @@ t_list		*ft_choose(t_list *la, t_list *lb, t_list *sol)
 			ft_dyn_copy(cur, sol);
 		ft_lstdelallnodes(cur);
 	}
-	free (cur);
+	free(cur);
 	return (sol);
 }
 
