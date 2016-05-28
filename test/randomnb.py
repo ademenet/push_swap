@@ -1,3 +1,5 @@
-from random import randint
+import random
 
-print(' '.join([str(i) for i in sorted([random.sample(xrange(1, 5000), 2000) for _ in range(5000)])]))
+my_list = list(range(1, 1000))
+random.shuffle(my_list)
+print ' '.join(map(str, my_list))
