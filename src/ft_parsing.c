@@ -6,7 +6,7 @@
 /*   By: ademenet <ademenet@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/04/26 13:58:05 by ademenet          #+#    #+#             */
-/*   Updated: 2016/05/30 10:17:50 by ademenet         ###   ########.fr       */
+/*   Updated: 2016/05/30 10:31:16 by ademenet         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -63,17 +63,22 @@ int				ft_check(t_list *list, char *av)
 
 int				ft_checkbonus(char **av, int *bonus)
 {
+	int			i;
+
+	i = 0;
 	if (ft_strcmp(av[1], "-v") == 0)
 	{
 		*bonus = 1;
-		return (1);
+		if (av[2])
+			i = 1;
 	}
 	else if (ft_strcmp(av[1], "-c") == 0)
 	{
 		*bonus = 2;
-		return (1);
+		if (av[2])
+			i = 1;
 	}
-	return (0);
+	return (i);
 }
 
 
