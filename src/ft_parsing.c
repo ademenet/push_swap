@@ -6,7 +6,7 @@
 /*   By: ademenet <ademenet@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/04/26 13:58:05 by ademenet          #+#    #+#             */
-/*   Updated: 2016/05/30 10:31:16 by ademenet         ###   ########.fr       */
+/*   Updated: 2016/05/30 10:57:36 by ademenet         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -80,7 +80,6 @@ int				ft_checkbonus(char **av, int *bonus)
 	}
 	return (i);
 }
-
 
 /*
 ** We parse and check at the same time. What else?

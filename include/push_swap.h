@@ -6,7 +6,7 @@
 /*   By: ademenet <ademenet@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/05/16 16:11:14 by ademenet          #+#    #+#             */
-/*   Updated: 2016/05/30 10:15:52 by ademenet         ###   ########.fr       */
+/*   Updated: 2016/05/30 10:56:50 by ademenet         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,9 +16,7 @@
 # include <unistd.h>
 # include <stdlib.h>
 # include <string.h>
-
-# include <stdio.h> // for debugging
-# define DB(A) printf(">>>%d<<<\n", A);
+# include <stdio.h>
 
 # define INT_MAX 2147483647
 # define INT_MIN -2147483648
@@ -99,7 +97,8 @@ t_list				*ft_revrotate(t_list *l, t_list *mv, int ab);
 t_list				*ft_dyn_clean(t_list *l, t_list *mv);
 t_list				*ft_dyn_selectmove(t_list *l, t_list *mv, int swt);
 t_list				*ft_dyn_copy(t_list *mv, t_list *sol);
-int					ft_dyn_explore(t_list *l, t_list *mv, t_list *sol, int index);
+int					ft_dyn_explore(t_list *l, t_list *mv, t_list *sol,
+					int index);
 t_list				*ft_dyn_resolve(t_list *l);
 
 /*
