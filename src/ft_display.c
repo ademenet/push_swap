@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_display.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: alain <alain@student.42.fr>                +#+  +:+       +#+        */
+/*   By: ademenet <ademenet@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/05/23 17:16:25 by ademenet          #+#    #+#             */
-/*   Updated: 2016/05/28 16:21:04 by alain            ###   ########.fr       */
+/*   Updated: 2016/05/30 10:22:30 by ademenet         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,6 +19,27 @@
 const static char	*g_push_swap_moves[11] = { "sa", "sb", "ss", "pa", "pb",
 	"ra", "rb", "rr", "rra", "rrb", "rrr" };
 
+void				ft_display_color(t_list *mv)
+{
+	t_node			*tmp;
+	int				len;
+	int				col;
+
+	tmp = mv->head;
+	col = 31;
+	while (tmp)
+	{
+		ft_printf("\x1b[%dm%s\x1b[0m", col, g_push_swap_moves[tmp->v]);
+		if (len < mv->len - 1)
+			ft_printf(" ");
+		tmp = tmp->next;
+		len++;
+		col++;
+		if (col == 38)
+			col = 31;
+	}
+}
+
 void				ft_display(t_list *mv, int bonus)
 {
 	t_node			*tmp;
@@ -28,13 +49,18 @@ void				ft_display(t_list *mv, int bonus)
 		return ;
 	tmp = mv->head;
 	len = 0;
-	while (tmp)
+	if (bonus == 2)
+		ft_display_color(mv);
+	else
 	{
-		ft_printf(g_push_swap_moves[tmp->v]);
-		if (len < mv->len - 1)
-			ft_printf(" ");
-		tmp = tmp->next;
-		len++;
+		while (tmp)
+		{
+			ft_printf(g_push_swap_moves[tmp->v]);
+			if (len < mv->len - 1)
+				ft_printf(" ");
+			tmp = tmp->next;
+			len++;
+		}
 	}
 	ft_printf("\n");
 	if (bonus == 1)

@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_parsing.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: alain <alain@student.42.fr>                +#+  +:+       +#+        */
+/*   By: ademenet <ademenet@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/04/26 13:58:05 by ademenet          #+#    #+#             */
-/*   Updated: 2016/05/28 16:29:08 by alain            ###   ########.fr       */
+/*   Updated: 2016/05/30 10:17:50 by ademenet         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -58,6 +58,26 @@ int				ft_check(t_list *list, char *av)
 }
 
 /*
+** Here we check if we have some bonuses flags.
+*/
+
+int				ft_checkbonus(char **av, int *bonus)
+{
+	if (ft_strcmp(av[1], "-v") == 0)
+	{
+		*bonus = 1;
+		return (1);
+	}
+	else if (ft_strcmp(av[1], "-c") == 0)
+	{
+		*bonus = 2;
+		return (1);
+	}
+	return (0);
+}
+
+
+/*
 ** We parse and check at the same time. What else?
 */
 
@@ -68,12 +88,7 @@ t_list			*ft_parsing(int ac, char **av, int *bonus)
 	int			i;
 
 	la = ft_lstnew();
-	i = 1;
-	if (ft_strcmp(av[1], "-v") == 0)
-	{
-		*bonus = 1;
-		i++;
-	}
+	i = 1 + ft_checkbonus(av, bonus);
 	while (i < ac)
 	{
 		v = ft_check(la, av[i]);

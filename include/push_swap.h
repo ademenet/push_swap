@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   push_swap.h                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: alain <alain@student.42.fr>                +#+  +:+       +#+        */
+/*   By: ademenet <ademenet@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/05/16 16:11:14 by ademenet          #+#    #+#             */
-/*   Updated: 2016/05/28 16:29:27 by alain            ###   ########.fr       */
+/*   Updated: 2016/05/30 10:15:52 by ademenet         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -77,6 +77,7 @@ int					ft_strcmp(const char *s1, const char *s2);
 */
 
 t_list				*ft_parsing(int ac, char **av, int *bonus);
+int					ft_checkbonus(char **av, int *bonus);
 int					ft_check(t_list *list, char *av);
 int					ft_isint(t_list *list, char *av);
 int					ft_isunique(t_list *list, int v);
@@ -126,6 +127,7 @@ t_list				*ft_isreverse(t_list *l, t_list *mv);
 */
 
 void				ft_display(t_list *mv, int bonus);
+void				ft_display_color(t_list *mv);
 
 /*
 ** Guests and bonus
