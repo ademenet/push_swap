@@ -6,7 +6,7 @@
 #    By: ademenet <ademenet@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2016/05/19 16:20:54 by ademenet          #+#    #+#              #
-#    Updated: 2016/05/30 12:03:24 by ademenet         ###   ########.fr        #
+#    Updated: 2016/05/30 14:18:34 by ademenet         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -47,7 +47,7 @@ LIB_NAME = 	ft_atoi.c\
 			ft_power.c\
 			ft_strcmp.c
 
-INC_NAME = fpf_printf.h
+INC_NAME = push_swap.h
 
 OBJ_NAME = $(SRC_NAME:.c=.o)
 OBJLIB_NAME = $(LIB_NAME:.c=.o)
@@ -92,3 +92,5 @@ re: fclean all
 norme:
 	@norminette $(SRC) $(LIB) $(INC)
 	@echo "\033[1;34mPush_swap\t\033[1;33mNorme\t\033[0;32m[OK]\033[0m"
+	@norminette ft_printf/
+	@echo "\033[1;34mLibftprintf\t\033[1;33mNorme\t\033[0;32m[OK]\033[0m"

@@ -6,12 +6,12 @@
 /*   By: ademenet <ademenet@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/04/19 14:27:23 by ademenet          #+#    #+#             */
-/*   Updated: 2016/05/24 11:01:10 by ademenet         ###   ########.fr       */
+/*   Updated: 2016/05/30 14:16:59 by ademenet         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef fpf_PRINTF_H
-# define fpf_PRINTF_H
+#ifndef FPF_PRINTF_H
+# define FPF_PRINTF_H
 
 # include <stdarg.h>
 # include <unistd.h>
