@@ -17,7 +17,7 @@
 ** how many errors we encounter.
 */
 
-int			ft_issortasc(t_list *l)
+int			ft_issortasc(t_plst *l)
 {
 	t_node	*tmp;
 	int		index;
@@ -33,7 +33,7 @@ int			ft_issortasc(t_list *l)
 	return (index);
 }
 
-int			ft_issortdes(t_list *l)
+int			ft_issortdes(t_plst *l)
 {
 	t_node	*tmp;
 	int		index;

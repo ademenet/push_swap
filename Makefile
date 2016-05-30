@@ -6,7 +6,7 @@
 #    By: ademenet <ademenet@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2016/05/19 16:20:54 by ademenet          #+#    #+#              #
-#    Updated: 2016/05/30 10:48:13 by ademenet         ###   ########.fr        #
+#    Updated: 2016/05/30 11:40:02 by ademenet         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -43,7 +43,7 @@ LIB_NAME = 	ft_atoi.c\
 			ft_isdigit.c\
 			ft_issort.c\
 			ft_lstappend.c\
-			ft_lstnew.c\
+			ft_pslstnew.c\
 			ft_lstutils.c\
 			ft_power.c\
 			ft_strcmp.c

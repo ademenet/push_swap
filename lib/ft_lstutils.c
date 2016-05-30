@@ -12,7 +12,7 @@
 
 #include "../include/push_swap.h"
 
-void		ft_lstdellastone(t_list *l)
+void		ft_lstdellastone(t_plst *l)
 {
 	t_node	*tmp;
 	t_node	*del;
@@ -30,7 +30,7 @@ void		ft_lstdellastone(t_list *l)
 	}
 }
 
-void		ft_lstdelallnodes(t_list *l)
+void		ft_lstdelallnodes(t_plst *l)
 {
 	t_node	*tmp;
 	t_node	*del;
@@ -50,7 +50,7 @@ void		ft_lstdelallnodes(t_list *l)
 	}
 }
 
-void		ft_lstclear(t_list *l)
+void		ft_lstclear(t_plst *l)
 {
 	ft_lstdelallnodes(l);
 	free(l);

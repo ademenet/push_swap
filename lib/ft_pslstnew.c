@@ -1,27 +1,28 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_bonusdisplaystack.c                             :+:      :+:    :+:   */
+/*   ft_pslstnew.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: ademenet <ademenet@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2016/05/24 14:59:20 by ademenet          #+#    #+#             */
-/*   Updated: 2016/05/27 09:45:35 by ademenet         ###   ########.fr       */
+/*   Created: 2016/05/16 16:43:38 by ademenet          #+#    #+#             */
+/*   Updated: 2016/05/30 11:40:36 by ademenet         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../include/push_swap.h"
 
-void		ft_print_l(t_plst *l, char *str)
+t_plst			*ft_pslstnew(void)
 {
-	t_node	*tmp;
+	t_plst		*list;
 
-	tmp = l->head;
-	ft_printf("%s |", str);
-	while (tmp)
+	if (!(list = (t_plst*)malloc(sizeof(t_plst))))
+		return (NULL);
+	if (list != NULL)
 	{
-		ft_printf("%7d", tmp->v);
-		tmp = tmp->next;
+		list->len = 0;
+		list->head = NULL;
+		list->tail = NULL;
 	}
-	ft_printf("|\n");
+	return (list);
 }

@@ -6,7 +6,7 @@
 // {
 // 	setbuf(stdout, NULL); // disable buffering on STDOUT
 //
-// 	t_list	*ret = NULL;
+// 	t_plst	*ret = NULL;
 // 	char	*av[4];
 // 	int		ac = 4;
 // 	av[0] = "a.out";
@@ -72,8 +72,8 @@
 // void		test_ft_operations(void)
 // {
 // 	setbuf(stdout, NULL);
-// 	t_list	*la = NULL;
-// 	t_list	*lb;
+// 	t_plst	*la = NULL;
+// 	t_plst	*lb;
 // 	char	*av[6];
 // 	int		ac = 6;
 //
@@ -85,7 +85,7 @@
 // 	av[5] = "5";
 // // Initializing lists
 // 	la = ft_parsing(ac, av);
-// 	lb = ft_lstnew();
+// 	lb = ft_pslstnew();
 //
 // 	printf("%-30s\n", "Liste initiale:");
 // 	print_la(la);
@@ -238,11 +238,11 @@
 // 	print_lb(lb);
 // }
 
-// void		test_ft_list_len(void)
+// void		test_ft_plst_len(void)
 // {
 // 	setbuf(stdout, NULL);
-// 	t_list	*la = NULL;
-// 	t_list	lb;
+// 	t_plst	*la = NULL;
+// 	t_plst	lb;
 // 	char	*av[6];
 // 	int		ac = 6;
 //
@@ -298,8 +298,8 @@
 // void		test_ft_example(void)
 // {
 // 	setbuf(stdout, NULL);
-// 	t_list	*la = NULL;
-// 	t_list	lb;
+// 	t_plst	*la = NULL;
+// 	t_plst	lb;
 // 	char	*av[7];
 // 	int		ac = 7;
 //
@@ -349,8 +349,8 @@
 // void		test_ft_sorts()
 // {
 // 	setbuf(stdout, NULL);
-// 	t_list	*la = NULL;
-// 	t_list	lb;
+// 	t_plst	*la = NULL;
+// 	t_plst	lb;
 // 	char	*av[7];
 // 	int		ac = 7;
 //
@@ -418,8 +418,8 @@
 // void		test_ft_sortmin(void)
 // {
 // 	setbuf(stdout, NULL);
-// 	t_list	*la = NULL;
-// 	t_list	*lb;
+// 	t_plst	*la = NULL;
+// 	t_plst	*lb;
 // 	char	*av[7];
 // 	int		ac = 7;
 // 	int		min;
@@ -433,7 +433,7 @@
 // 	av[6] = "7";
 // // Initializing my first list
 // 	la = ft_parsing(ac, av);
-// 	lb = ft_lstnew();
+// 	lb = ft_pslstnew();
 //
 // 	ft_sortmin(la, lb);
 // 	print_la(la);
@@ -443,8 +443,8 @@
 // void		test_ft_dyn_copy()
 // {
 // 	setbuf(stdout, NULL);
-// 	t_list	*mv = NULL;
-// 	t_list	*sol;
+// 	t_plst	*mv = NULL;
+// 	t_plst	*sol;
 // 	char	*av[7];
 // 	int		ac = 7;
 //
@@ -457,7 +457,7 @@
 // 	av[6] = "8";
 // // Initializing my first list
 // 	mv = ft_parsing(ac, av);
-// 	sol = ft_lstnew();
+// 	sol = ft_pslstnew();
 //
 // 	print_la(mv);
 // 	print_lb(sol);
@@ -469,8 +469,8 @@
 void		test_ft_dyn_resolve()
 {
 	setbuf(stdout, NULL);
-	t_list	*l = NULL;
-	t_list	*mv;
+	t_plst	*l = NULL;
+	t_plst	*mv;
 	char	*av[9];
 	int		ac = 9;
 
@@ -499,7 +499,7 @@ int			main()
 {
 	// test_ft_parsing();
 	// test_ft_operations();
-	// test_ft_list_len();
+	// test_ft_plst_len();
 	// test_ft_example();
 	// test_ft_sorts();
 	// test_ft_sortmin();

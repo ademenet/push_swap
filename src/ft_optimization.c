@@ -6,7 +6,7 @@
 /*   By: ademenet <ademenet@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/05/23 10:26:01 by ademenet          #+#    #+#             */
-/*   Updated: 2016/05/28 18:34:50 by ademenet         ###   ########.fr       */
+/*   Updated: 2016/05/30 11:37:06 by ademenet         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,7 +18,7 @@
 ** ratio / position.
 */
 
-int			ft_locateit(t_list *l, int min)
+int			ft_locateit(t_plst *l, int min)
 {
 	t_node	*tmp;
 	int		index;
@@ -38,7 +38,7 @@ int			ft_locateit(t_list *l, int min)
 ** not set to list start.
 */
 
-t_list		*ft_isreverse(t_list *l, t_list *mv)
+t_plst		*ft_isreverse(t_plst *l, t_plst *mv)
 {
 	int		pos;
 	int		min;

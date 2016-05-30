@@ -17,7 +17,7 @@
 ** sort.
 */
 
-t_list		*ft_sortcocktail_a(t_list *l, t_list *mv)
+t_plst		*ft_sortcocktail_a(t_plst *l, t_plst *mv)
 {
 	int		size;
 	int		len;

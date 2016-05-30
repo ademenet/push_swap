@@ -6,7 +6,7 @@
 /*   By: ademenet <ademenet@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/04/26 13:57:46 by ademenet          #+#    #+#             */
-/*   Updated: 2016/05/28 18:35:27 by ademenet         ###   ########.fr       */
+/*   Updated: 2016/05/30 11:40:02 by ademenet         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,11 +18,11 @@
 ** complexes algorithms.
 */
 
-t_list		*ft_choose(t_list *la, t_list *lb, t_list *sol)
+t_plst		*ft_choose(t_plst *la, t_plst *lb, t_plst *sol)
 {
-	t_list	*cur;
+	t_plst	*cur;
 
-	cur = ft_lstnew();
+	cur = ft_pslstnew();
 	if (ft_issortasc(la))
 	{
 		if (la->len < 20)
@@ -44,17 +44,17 @@ t_list		*ft_choose(t_list *la, t_list *lb, t_list *sol)
 
 int			main(int ac, char **av)
 {
-	t_list	*la;
-	t_list	*lb;
-	t_list	*sol;
+	t_plst	*la;
+	t_plst	*lb;
+	t_plst	*sol;
 	int		bonus;
 
-	sol = ft_lstnew();
+	sol = ft_pslstnew();
 	bonus = 0;
 	if (ac == 1)
 		return (0);
 	la = ft_parsing(ac, av, &bonus);
-	lb = ft_lstnew();
+	lb = ft_pslstnew();
 	ft_choose(la, lb, sol);
 	ft_display(sol, bonus);
 	ft_lstclear(sol);

@@ -6,7 +6,7 @@
 /*   By: ademenet <ademenet@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/05/17 13:47:22 by ademenet          #+#    #+#             */
-/*   Updated: 2016/05/26 16:44:25 by ademenet         ###   ########.fr       */
+/*   Updated: 2016/05/30 11:37:06 by ademenet         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,7 +17,7 @@
 ** and swap. With these we have to sort n random int arguments.
 */
 
-t_list			*ft_revrotate(t_list *l, t_list *mv, int ab)
+t_plst			*ft_revrotate(t_plst *l, t_plst *mv, int ab)
 {
 	t_node		*tmp;
 	t_node		*tta;
@@ -37,7 +37,7 @@ t_list			*ft_revrotate(t_list *l, t_list *mv, int ab)
 	return (mv = ft_lstappend(mv, 8 + ab));
 }
 
-t_list			*ft_rotate(t_list *l, t_list *mv, int ab)
+t_plst			*ft_rotate(t_plst *l, t_plst *mv, int ab)
 {
 	t_node		*tmp;
 
@@ -55,7 +55,7 @@ t_list			*ft_rotate(t_list *l, t_list *mv, int ab)
 	return (mv = ft_lstappend(mv, 5 + ab));
 }
 
-t_list			*ft_push_a(t_list *la, t_list *lb, t_list *mv)
+t_plst			*ft_push_a(t_plst *la, t_plst *lb, t_plst *mv)
 {
 	t_node		*tmp;
 
@@ -81,7 +81,7 @@ t_list			*ft_push_a(t_list *la, t_list *lb, t_list *mv)
 	return (mv = ft_lstappend(mv, 3));
 }
 
-t_list			*ft_push_b(t_list *la, t_list *lb, t_list *mv)
+t_plst			*ft_push_b(t_plst *la, t_plst *lb, t_plst *mv)
 {
 	t_node		*tmp;
 
@@ -107,7 +107,7 @@ t_list			*ft_push_b(t_list *la, t_list *lb, t_list *mv)
 	return (mv = ft_lstappend(mv, 4));
 }
 
-t_list			*ft_swap(t_list *l, t_list *mv, int ab)
+t_plst			*ft_swap(t_plst *l, t_plst *mv, int ab)
 {
 	int			tmp;
 

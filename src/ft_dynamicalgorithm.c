@@ -22,7 +22,7 @@
 ** put the list order back.
 */
 
-t_list			*ft_dyn_clean(t_list *l, t_list *mv)
+t_plst			*ft_dyn_clean(t_plst *l, t_plst *mv)
 {
 	if (mv->tail->v == 0)
 		ft_swap(l, mv, -1);
@@ -38,7 +38,7 @@ t_list			*ft_dyn_clean(t_list *l, t_list *mv)
 ** Here we select the move according to our previous one and the last one.
 */
 
-t_list			*ft_dyn_selectmove(t_list *l, t_list *mv, int swt)
+t_plst			*ft_dyn_selectmove(t_plst *l, t_plst *mv, int swt)
 {
 	t_node		*tmv;
 
@@ -59,7 +59,7 @@ t_list			*ft_dyn_selectmove(t_list *l, t_list *mv, int swt)
 ** first solution, we stock it.
 */
 
-t_list			*ft_dyn_copy(t_list *mv, t_list *sol)
+t_plst			*ft_dyn_copy(t_plst *mv, t_plst *sol)
 {
 	t_node		*tmp;
 
@@ -81,7 +81,7 @@ t_list			*ft_dyn_copy(t_list *mv, t_list *sol)
 ** the maximum value (2^DP - 1). We call dyn_copy each times we find a solution.
 */
 
-int				ft_dyn_explore(t_list *l, t_list *mv, t_list *sol, int index)
+int				ft_dyn_explore(t_plst *l, t_plst *mv, t_plst *sol, int index)
 {
 	static long	count = 0;
 	int			swt;
@@ -109,18 +109,18 @@ int				ft_dyn_explore(t_list *l, t_list *mv, t_list *sol, int index)
 ** start movements.
 */
 
-t_list			*ft_dyn_resolve(t_list *l)
+t_plst			*ft_dyn_resolve(t_plst *l)
 {
-	t_list		*sol;
-	t_list		*mv1;
-	t_list		*mv2;
-	t_list		*mv3;
+	t_plst		*sol;
+	t_plst		*mv1;
+	t_plst		*mv2;
+	t_plst		*mv3;
 	int			index;
 
-	mv1 = ft_lstnew();
-	mv2 = ft_lstnew();
-	mv3 = ft_lstnew();
-	sol = ft_lstnew();
+	mv1 = ft_pslstnew();
+	mv2 = ft_pslstnew();
+	mv3 = ft_pslstnew();
+	sol = ft_pslstnew();
 	index = 1;
 	mv1 = ft_swap(l, mv1, 0);
 	ft_dyn_explore(l, mv1, sol, index);

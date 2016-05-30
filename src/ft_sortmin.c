@@ -22,7 +22,7 @@
 ** Finding the minimum. Not a big deal but it could cost O(n) operations.
 */
 
-int				ft_findmin(t_list *l)
+int				ft_findmin(t_plst *l)
 {
 	t_node		*tmp;
 	int			min;
@@ -44,7 +44,7 @@ int				ft_findmin(t_list *l)
 ** it!
 */
 
-static t_list	*ft_bubble(t_list *la, t_list *mv, int min)
+static t_plst	*ft_bubble(t_plst *la, t_plst *mv, int min)
 {
 	int			pos;
 
@@ -67,7 +67,7 @@ static t_list	*ft_bubble(t_list *la, t_list *mv, int min)
 ** b-stack. Yep, it's cruel.
 */
 
-t_list			*ft_sortmin(t_list *la, t_list *lb, t_list *mv)
+t_plst			*ft_sortmin(t_plst *la, t_plst *lb, t_plst *mv)
 {
 	t_node		*ta;
 	t_node		*tb;

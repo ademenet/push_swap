@@ -12,7 +12,7 @@
 
 #include "../include/push_swap.h"
 
-t_list			*ft_lstappend(t_list *list, int v)
+t_plst			*ft_lstappend(t_plst *list, int v)
 {
 	t_node		*new;
 

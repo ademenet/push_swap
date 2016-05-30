@@ -6,7 +6,7 @@
 /*   By: ademenet <ademenet@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/05/23 17:16:25 by ademenet          #+#    #+#             */
-/*   Updated: 2016/05/30 10:55:41 by ademenet         ###   ########.fr       */
+/*   Updated: 2016/05/30 11:37:06 by ademenet         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,7 +19,7 @@
 const static char	*g_push_swap_moves[11] = { "sa", "sb", "ss", "pa", "pb",
 	"ra", "rb", "rr", "rra", "rrb", "rrr" };
 
-void				ft_display_color(t_list *mv)
+void				ft_display_color(t_plst *mv)
 {
 	t_node			*tmp;
 	int				len;
@@ -40,7 +40,7 @@ void				ft_display_color(t_list *mv)
 	}
 }
 
-void				ft_display(t_list *mv, int bonus)
+void				ft_display(t_plst *mv, int bonus)
 {
 	t_node			*tmp;
 	int				len;
