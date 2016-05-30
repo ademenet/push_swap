@@ -3,10 +3,10 @@
 #                                                         :::      ::::::::    #
 #    Makefile                                           :+:      :+:    :+:    #
 #                                                     +:+ +:+         +:+      #
-#    By: alain <alain@student.42.fr>                +#+  +:+       +#+         #
+#    By: ademenet <ademenet@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2016/05/19 16:20:54 by ademenet          #+#    #+#              #
-#    Updated: 2016/05/28 16:24:03 by alain            ###   ########.fr        #
+#    Updated: 2016/05/30 10:48:13 by ademenet         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -74,9 +74,13 @@ $(OBJLIB_PATH)/%.o: $(LIB_PATH)/%.c
 	@mkdir $(OBJLIB_PATH) 2> /dev/null || true
 	@$(CC) -c -o $@ $<
 
+correctme:
+	@curl https://raw.githubusercontent.com/moannuo/push_swap/master/test/test_correction.sh > correctme.sh
+	@sh correctme.sh
+
 clean:
 	@make clean -C ft_printf/
-	@rm -rf ./obj
+	@rm -rf ./obj correctme.sh
 	@echo "\033[1;34mPush_swap\t\033[1;33mCleaning obj\t\033[0;32m[OK]\033[0m"
 
 fclean: clean

@@ -1,6 +1,6 @@
 #!/bin/sh -x
 
-if [ "$1" = "mk" ]
+if [ ! -f ./push_swap ]
 then
 	make re
 fi
@@ -100,4 +100,15 @@ then
 	printf "\n\033[34;1mWith 2000 arguments from 0 to 1999 random\033[0m\n"
 	echo './push_swap `python randomnb.py`'
 	./push_swap `python test/randomnb.py`
+fi
+
+if [ "$1" = "bonus" ]
+then
+	printf "\n\033[34;1mBonus: display moves number\033[0m\n"
+	echo './push_swap -v 5 6 2 9 1 3'
+	./push_swap -v 5 6 2 9 1 3
+
+	printf "\n\033[34;1mBonus: display in color\033[0m\n"
+	echo './push_swap -c 5 6 2 9 1 3'
+	./push_swap -c 5 6 2 9 1 3
 fi
