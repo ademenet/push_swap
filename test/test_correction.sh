@@ -2,7 +2,7 @@
 
 if [ ! -f ./push_swap ];
 then
-	make re
+	make
 
 elif [ "$1" = "big1" ];
 then
